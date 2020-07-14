@@ -1,0 +1,62 @@
+
+{% extends "base.html" %}
+
+{% load wagtailimages_tags %}
+{% block content %}
+
+<div class="header">
+    <h2>{{self.title}}</h2>
+</div>
+
+<div class="featured-wrapper">
+    <div class="featured">
+        {% for post in featured %}
+            {% image post.cover_image fill-600x600-c100 as cover %}
+            <div class="card relative flex justify-center">
+                <div class="info absolute px2">
+                    <div class="tag-container">
+                        {% for tag in post.genres.all %}
+                            <span class="tag">{{tag.name}}</span>
+                        {% endfor %}
+                    </div>
+                    <h2 class="h3">{{post.title}}</h2>
+                </div>
+                <img src="{{ cover.url }}" alt="">
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<div class="main-wrapper">
+    <div class="main">
+        <div class="content-wrapper">
+            {% for post in lastest_anime %}
+                {% image post.cover_image fill-600x600-c100 as cover %}
+                <div class="post">
+                    <img src="{{cover.url}}" alt="">
+                    <div class="details">
+                        <h3 class="title">{{post.title}}</h3>
+                        <div class="tag-container">
+                            {% for tag in post.tags.all %}
+                                <span class="tag">{{tag.name}}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="tag-container">
+                            {% for genre in post.genres.all %}
+                                <span class="genre">{{genre.name}}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+        <div class="sidebar-wrapper">
+    
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

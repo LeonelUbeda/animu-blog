@@ -1,0 +1,143 @@
+:root{
+    --wrapper-size: 90%;
+}
+
+*{
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.header{
+    background-color: #ED4346;
+    height: 80px;
+    width: 100%;
+}
+
+
+.featured{
+    margin: 20px 0;
+    max-width: 1200px;
+    width: var(--wrapper-size);
+    display: flex;
+    justify-content: space-between
+}
+
+.featured .card{
+    width: 30%;
+    height: 490px;
+    justify-content: center;
+}
+.featured .card .info{
+    bottom: 20px;
+    width: 90%;
+    background-color: rgba(0,0,0,.4);
+    color: white;
+    padding: 10px 10px;
+}
+
+.featured h2{
+    margin: 5px 0;
+}
+
+.tag-container{
+    width: 100%;
+    padding: 2px 3px;
+    display: flex;
+}
+
+.tag, .genre{
+    background-color: #70A4FF;
+    color: white;
+    margin-right: 10px;
+    border-radius: 7px;
+    white-space: nowrap;
+    padding: 3px 10px;
+}
+.genre {
+    background-color: #FF7070;
+}
+
+
+.featured .card img{
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-wrapper, .featured-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main{
+    width: var(--wrapper-size);
+    background-color: royalblue;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-wrapper{
+    margin-right: 20px;
+    width: 70%;
+    max-width: ;
+    background-color: bisque;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.content-wrapper .post{
+    margin-bottom: 30px;
+    width: 95%;
+    max-width: 800px;
+    display: flex;
+}
+
+.content-wrapper .post .details{
+    padding-top: 10px;
+    width: 60%;
+    padding-left: 10px;
+}
+
+
+.content-wrapper .post .title{
+    margin: 3px 0;
+    font-size: 1.5rem;
+}
+.content-wrapper .post img{
+    width: 40%;
+    max-width: 300px;
+    height: 210px;
+    object-fit: cover;
+}
+
+
+.sidebar-wrapper{
+    min-width: 300px;
+    width: 30%;
+    height: 100px;
+    background-color: aquamarine;
+}
+
+@media (max-width: 1000px) {
+    .featured{
+        flex-direction: column;
+        align-items: center;
+    }
+    .featured .card{
+        width: 90%;
+        margin-bottom: 20px;
+        height: 490px;
+    }
+    .main{
+        flex-direction: column;
+    }
+
+    .content-wrapper{
+        width: 100%;
+    }
+}
