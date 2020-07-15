@@ -32,28 +32,84 @@
     <div class="main">
         <div class="content-wrapper">
             {% for post in lastest_anime %}
-                {% image post.cover_image fill-600x600-c100 as cover %}
+                {% image post.cover_image fill-500x300-c30 as cover %}
                 <div class="post">
-                    <img src="{{cover.url}}" alt="">
-                    <div class="details">
-                        <h3 class="title">{{post.title}}</h3>
-                        <div class="tag-container">
+                    <div class="image-wrapper relative">
+                        <img src="{{cover.url}}" alt="">
+                        <div class="tag-container absolute">
                             {% for tag in post.tags.all %}
                                 <span class="tag">{{tag.name}}</span>
                             {% endfor %}
                         </div>
-                        <div class="tag-container">
-                            {% for genre in post.genres.all %}
-                                <span class="genre">{{genre.name}}</span>
+                    </div>
+                    <div class="details">
+                        <h3 class="title">{{post.title}}</h3>
+                        {% if post.excerpt %} 
+                            <p>{{post.excerpt}}</p> 
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+            {% for post in lastest_anime %}
+                {% image post.cover_image fill-500x300-c30 as cover %}
+                <div class="post">
+                    <div class="image-wrapper relative">
+                        <img src="{{cover.url}}" alt="">
+                        <div class="tag-container absolute">
+                            {% for tag in post.tags.all %}
+                                <span class="tag">{{tag.name}}</span>
                             {% endfor %}
                         </div>
                     </div>
-
+                    <div class="details">
+                        <h3 class="title">{{post.title}}</h3>
+                        {% if post.excerpt %} 
+                            <p>{{post.excerpt}}</p> 
+                        {% endif %}
+                    </div>
                 </div>
             {% endfor %}
+            {% for post in lastest_anime %}
+                {% image post.cover_image fill-500x300-c30 as cover %}
+                <div class="post">
+                    <div class="image-wrapper relative">
+                        <img src="{{cover.url}}" alt="">
+                        <div class="tag-container absolute">
+                            {% for tag in post.tags.all %}
+                                <span class="tag">{{tag.name}}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="details">
+                        <h3 class="title">{{post.title}}</h3>
+                        {% if post.excerpt %} 
+                            <p>{{post.excerpt}}</p> 
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+           
         </div>
-        <div class="sidebar-wrapper">
-    
+        <div class="sidebar-wrapper flex flex-column">
+
+            <div class="random-post">
+                <h2 class="border-title">Post Aleatorio</h2>
+                {% image random.cover_image fill-250x350 as cover%}
+                <div class="flex justify-center">
+                    <img src="{{cover.url}}" alt="" style="margin: 0 auto;">
+                </div>
+            </div>
+            <div class="tags">
+                <h2 class="border-title">Tags</h2>
+                <ul class="flex list-reset">
+                    {% for tag in tags %}
+                    <li class="nowrap tag">
+                        {{tag.name}}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <h2>Holas</h2>
         </div>
     </div>
 

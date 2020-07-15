@@ -71,7 +71,7 @@ class AnimePost(Page):
         on_delete=models.SET_NULL,
         related_name="+"
     )
-
+    excerpt = models.CharField(max_length=80, null=True, blank=False)
     content = StreamField([], blank=True, null=True)
 
     download = StreamField([
@@ -84,7 +84,7 @@ class AnimePost(Page):
     content_panels = Page.content_panels + [
         ImageChooserPanel("cover_image"),
         StreamFieldPanel("content"),
-
+        FieldPanel("excerpt"),
         MultiFieldPanel([
             InlinePanel("aliases")
         ], "Alias"),
