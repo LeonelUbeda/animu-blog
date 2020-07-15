@@ -1,3 +1,7 @@
 anime/media/
 anime/*.sqlite3
 .vscode/
+node_modules
+
+#CACHE
+__pycache__/

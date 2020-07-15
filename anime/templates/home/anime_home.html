@@ -2,6 +2,7 @@
 {% extends "base.html" %}
 
 {% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
 {% block content %}
 
 <div class="header">
@@ -9,6 +10,12 @@
 </div>
 
 <div class="featured-wrapper">
+    <div>
+        <h2 class="border-title">Destacados</h2>
+    </div>
+    <div>
+        <h2 class="border-title">Destacados</h2>
+    </div>
     <div class="featured">
         {% for post in featured %}
             {% image post.cover_image fill-600x600-c100 as cover %}
@@ -20,16 +27,26 @@
                         {% endfor %}
                     </div>
                     <h2 class="h3">{{post.title}}</h2>
+                    <p class="excerpt white">{{post.excerpt}}</p>
                 </div>
                 <img src="{{ cover.url }}" alt="">
             </div>
         {% endfor %}
     </div>
-</div>
+    <div class="side">
+        <div class="post">
 
+        </div>
+        <div class="post">
+            
+        </div>
+    </div>
+
+</div>
 
 <div class="main-wrapper">
     <div class="main">
+        
         <div class="content-wrapper">
             {% for post in lastest_anime %}
                 {% image post.cover_image fill-500x300-c30 as cover %}
@@ -43,9 +60,9 @@
                         </div>
                     </div>
                     <div class="details">
-                        <h3 class="title">{{post.title}}</h3>
+                        <a href="{% pageurl post %}" class="text-decoration-none"><h3 class="title">{{post.title}}</h3></a>
                         {% if post.excerpt %} 
-                            <p>{{post.excerpt}}</p> 
+                            <p class="excerpt">{{post.excerpt}}</p> 
                         {% endif %}
                     </div>
                 </div>
@@ -91,14 +108,7 @@
            
         </div>
         <div class="sidebar-wrapper flex flex-column">
-
-            <div class="random-post">
-                <h2 class="border-title">Post Aleatorio</h2>
-                {% image random.cover_image fill-250x350 as cover%}
-                <div class="flex justify-center">
-                    <img src="{{cover.url}}" alt="" style="margin: 0 auto;">
-                </div>
-            </div>
+            
             <div class="tags">
                 <h2 class="border-title">Tags</h2>
                 <ul class="flex list-reset">
@@ -108,6 +118,13 @@
                     </li>
                     {% endfor %}
                 </ul>
+            </div>
+            <div class="random-post">
+                <h2 class="border-title">Post Aleatorio</h2>
+                {% image random.cover_image fill-250x350 as cover%}
+                <div class="flex justify-center">
+                    <img src="{{cover.url}}" alt="" style="margin: 0 auto;">
+                </div>
             </div>
             <h2>Holas</h2>
         </div>
