@@ -12,7 +12,7 @@ var path = {
 gulp.task('styles', () => {
     return gulp.src('./anime/anime/static/scss/**/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer({cascade: false, grid: 'autoplace'}))
+        .pipe(autoprefixer({cascade: false}))
         .pipe(gulp.dest(path.distCSS));
 });
 

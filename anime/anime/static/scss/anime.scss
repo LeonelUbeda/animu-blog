@@ -187,6 +187,21 @@ $wrapper-size: 85%;
 
 
 @media (max-width: 1000px) {
+    .featured-wrapper{
+        grid-template-columns: 1fr;
+        .featured{
+            
+        }
+        .side{
+            column-gap: 10px;
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr 1fr;
+            .post{
+                background-color: cadetblue;
+                height: 300px;
+            }
+        }
+    }
     .random-post{
         img{
             width: 80%;
@@ -219,6 +234,7 @@ $wrapper-size: 85%;
 @media (max-width: 600px) {
     $wrapper-size: 95%;
 
+    
     .main{
         width: $wrapper-size;
         max-width: $wrapper-size;

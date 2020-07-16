@@ -1,0 +1,20 @@
+
+{% extends "base.html" %}
+{% load blog_tags %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+{% block content %}
+{% header_blog %}
+
+
+<div class="main-wrapper">
+    <div class="main">
+        <div class="content-wrapper">
+        </div>
+        {% sidebar_blog %}
+    </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% load wagtailcore_tags %}
+<div class="header">
+    <h2>{{title}}</h2>
+    {% for item in menu.items.all %}
+        <a href="{% pageurl item.page_link %}" class="text-decoration-none"><h2>{{item.title}}</h2></a>
+
+        {% for subitem in item.subitems.all %}
+            <h5>{{subitem.title}}</h5>
+        {% endfor %}
+    {% endfor %}
+</div>

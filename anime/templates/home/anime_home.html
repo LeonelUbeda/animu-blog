@@ -1,13 +1,11 @@
 
 {% extends "base.html" %}
-
+{% load blog_tags %}
 {% load wagtailimages_tags %}
 {% load wagtailcore_tags %}
 {% block content %}
 
-<div class="header">
-    <h2>{{self.title}}</h2>
-</div>
+{% header_blog %}
 
 <div class="featured-wrapper">
     <div>
@@ -107,27 +105,7 @@
             {% endfor %}
            
         </div>
-        <div class="sidebar-wrapper flex flex-column">
-            
-            <div class="tags">
-                <h2 class="border-title">Tags</h2>
-                <ul class="flex list-reset">
-                    {% for tag in tags %}
-                    <li class="nowrap tag">
-                        {{tag.name}}
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="random-post">
-                <h2 class="border-title">Post Aleatorio</h2>
-                {% image random.cover_image fill-250x350 as cover%}
-                <div class="flex justify-center">
-                    <img src="{{cover.url}}" alt="" style="margin: 0 auto;">
-                </div>
-            </div>
-            <h2>Holas</h2>
-        </div>
+        {% sidebar_blog %}
     </div>
 
 </div>
