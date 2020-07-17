@@ -2,10 +2,65 @@
   font-family: 'Raleway', sans-serif;
   font-family: 'Roboto', sans-serif; }
 
+.site-name {
+  font-family: 'Raleway';
+  font-weight: 600;
+  font-size: 3rem;
+  margin: 10px 0;
+  text-align: center; }
+
 .header {
-  background-color: #ED4346;
-  height: 80px;
-  width: 100%; }
+  background-color: #4C86A8;
+  position: relative;
+  padding: 0 20px;
+  color: white;
+  height: 50px;
+  font-family: monospace;
+  width: 100%;
+  box-sizing: border-box; }
+  .header ul {
+    width: 85%;
+    height: 100%;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    display: flex; }
+    .header ul .item {
+      padding: 0 20px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      text-decoration: none;
+      position: relative;
+      transition-duration: 0.5s; }
+      .header ul .item:hover {
+        background-color: #2f5166; }
+      .header ul .item:hover ul {
+        display: block;
+        display: flex; }
+      .header ul .item a {
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        height: 100%; }
+      .header ul .item .subitem {
+        border: .5px solid #cbd5e0;
+        background-color: white;
+        display: none;
+        min-width: 100%;
+        width: auto;
+        height: auto;
+        color: #555555;
+        position: absolute;
+        top: 100%;
+        left: 0; }
+        .header ul .item .subitem li {
+          font-size: .9rem;
+          white-space: nowrap;
+          padding: 15px 10px;
+          z-index: 9999999999999999999999999999999999999999999999999;
+          cursor: pointer; }
+          .header ul .item .subitem li:hover {
+            background-color: #cbd5e0; }
 
 .featured-wrapper {
   margin: 20px auto;
@@ -56,7 +111,7 @@
   margin-bottom: 5px; }
 
 .genre {
-  background-color: #FF7070; }
+  background-color: #4C86A8; }
 
 .featured .card img {
   width: 100%;
@@ -127,7 +182,7 @@
 
 .border-title {
   border-left: 4px solid;
-  border-left-color: #c80000;
+  border-left-color: #2f5166;
   padding-left: 5px; }
 
 .sidebar-wrapper {

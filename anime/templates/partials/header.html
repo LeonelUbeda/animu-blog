@@ -1,11 +1,25 @@
 {% load wagtailcore_tags %}
-<div class="header">
-    <h2>{{title}}</h2>
-    {% for item in menu.items.all %}
-        <a href="{% pageurl item.page_link %}" class="text-decoration-none"><h2>{{item.title}}</h2></a>
+<h2 class="site-name">AMIMIR</h2>
 
-        {% for subitem in item.subitems.all %}
-            <h5>{{subitem.title}}</h5>
+<nav class="header">
+    <ul>
+        {% for item in menu.items.all %}
+            <li class="item">
+                <a href="{% if item.url %}{{item.url}}{% else %}{% pageurl item.page_link %}{% endif %}" class="text-decoration-none">
+                    {{item.title}}
+                </a>
+                {% with item.subitems.all as subitems %}
+                    {% if subitems %}
+                        <ul class="subitem">
+                            {% for subitem in item.subitems.all %}
+                                <li>{{subitem.title}}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+                
+            </li>
         {% endfor %}
-    {% endfor %}
-</div>
+    </ul>
+</nav>
+
