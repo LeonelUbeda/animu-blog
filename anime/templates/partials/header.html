@@ -12,7 +12,11 @@
                     {% if subitems %}
                         <ul class="subitem">
                             {% for subitem in item.subitems.all %}
-                                <li>{{subitem.title}}</li>
+                                <li>
+                                    <a href="{% if subitem.url %}{{subitem.url}}{% else %}{% pageurl subitem.page_link %}{% endif %}" class="text-decoration-none">
+                                        {{subitem.title}}
+                                    </a>
+                                </li>
                             {% endfor %}
                         </ul>
                     {% endif %}

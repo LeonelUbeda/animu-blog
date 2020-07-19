@@ -4,12 +4,12 @@ from django import template
 from random import randint
 from wagtail.core.models import Page
 from home.models import AnimeHome
-from posts.models import Tag, Genre, AnimePost
+from posts.models import MediaTag, Genre, AnimePost
 register = template.Library()
 
 @register.inclusion_tag('partials/header.html', takes_context=True)
 def header_blog(context):
-    """ Get list of live blog pages that are descendants of this page """
+    """ Para obtener el menu de la vista """
     # page = context['page']
     # posts = BlogPost.objects.descendant_of(page).live().public().order_by('-date_published')[:4]
 
@@ -37,16 +37,14 @@ def sidebar_blog(context):
 
     # page = context['page']
     # posts = BlogPost.objects.descendant_of(page).live().public().order_by('-date_published')[:4]
-    temp['tags'] = Tag.objects.all()
+    temp['tags'] = MediaTag.objects.all()
     temp['genres'] = Genre.objects.all()
 
-    #Mejorar esto para que sea independiente por SITIO
-    children_quantity = AnimePost.objects.all().count()
-    random_index = randint(0, children_quantity - 1)
-
-    import time
-    start = time.process_time()
-    temp['random'] = AnimePost.objects.all().live().public().specific()[random_index]
-    print(time.process_time() - start)
-
+    try:
+        #Mejorar esto para que sea independiente por SITIO
+        children_quantity = AnimePost.objects.all().count()
+        random_index = randint(0, children_quantity - 1)
+        temp['random'] = AnimePost.objects.all().live().public().specific()[random_index]
+    except:
+        pass
     return temp

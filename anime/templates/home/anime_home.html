@@ -52,7 +52,7 @@
                     <div class="image-wrapper relative">
                         <img src="{{cover.url}}" alt="">
                         <div class="tag-container absolute">
-                            {% for tag in post.tags.all %}
+                            {% for tag in post.mediatag.all %}
                                 <span class="tag">{{tag.name}}</span>
                             {% endfor %}
                         </div>
@@ -71,15 +71,15 @@
                     <div class="image-wrapper relative">
                         <img src="{{cover.url}}" alt="">
                         <div class="tag-container absolute">
-                            {% for tag in post.tags.all %}
+                            {% for tag in post.mediatag.all %}
                                 <span class="tag">{{tag.name}}</span>
                             {% endfor %}
                         </div>
                     </div>
                     <div class="details">
-                        <h3 class="title">{{post.title}}</h3>
+                        <a href="{% pageurl post %}" class="text-decoration-none"><h3 class="title">{{post.title}}</h3></a>
                         {% if post.excerpt %} 
-                            <p>{{post.excerpt}}</p> 
+                            <p class="excerpt">{{post.excerpt}}</p> 
                         {% endif %}
                     </div>
                 </div>
@@ -90,15 +90,15 @@
                     <div class="image-wrapper relative">
                         <img src="{{cover.url}}" alt="">
                         <div class="tag-container absolute">
-                            {% for tag in post.tags.all %}
+                            {% for tag in post.mediatag.all %}
                                 <span class="tag">{{tag.name}}</span>
                             {% endfor %}
                         </div>
                     </div>
                     <div class="details">
-                        <h3 class="title">{{post.title}}</h3>
+                        <a href="{% pageurl post %}" class="text-decoration-none"><h3 class="title">{{post.title}}</h3></a>
                         {% if post.excerpt %} 
-                            <p>{{post.excerpt}}</p> 
+                            <p class="excerpt">{{post.excerpt}}</p> 
                         {% endif %}
                     </div>
                 </div>

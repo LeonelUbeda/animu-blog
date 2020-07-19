@@ -16,3 +16,14 @@ class LinkBlock(blocks.StructBlock):
         template = "posts/download_block.html"
 
 
+class RichTextBlock(blocks.RichTextBlock):
+    class Meta:
+        template = 'blocks/posts/richtext_block.html'
+        icon = 'edit'
+        label = 'Texto enriquecido'
+
+
+class LinkToParentBlock(blocks.StructBlock):
+    title = blocks.CharBlock(max_length=50, required=True)
+    class Meta:
+        template = 'blocks/posts/link_to_parent_block.html'

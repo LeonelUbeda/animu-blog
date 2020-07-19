@@ -3,7 +3,6 @@ from django.db import models
 from wagtail.core.models import Page
 from wagtail.snippets.models import register_snippet
 from posts.models import AnimePost
-from random import randint
 from wagtail.core.models import Orderable, ClusterableModel
 from modelcluster.fields import ParentalKey
 from wagtail.core.fields import StreamField
@@ -79,3 +78,6 @@ class AnimeHome(Page):
         FieldPanel("menu")
     ]
     max_count = 1
+
+
+# class FeaturedHomePage(Page):

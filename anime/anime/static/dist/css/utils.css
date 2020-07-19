@@ -1,0 +1,13 @@
+.flex {
+  display: flex; }
+
+.flex-col {
+  flex-direction: column; }
+
+.cover {
+  -o-object-fit: cover;
+  object-fit: cover; }
+
+.my-5 {
+  margin-top: 5px;
+  margin-bottom: 5px; }

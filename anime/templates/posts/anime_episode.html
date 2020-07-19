@@ -1,0 +1,37 @@
+
+{% extends "base.html" %}
+{% load blog_tags %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+{% block content %}
+{% header_blog %}
+
+
+<div>
+    <a href="{{ request.site.root_url }}">inicio</a>
+    <a href="{% pageurl self.get_parent %}">Padre</a>
+</div>
+
+<div class="main-wrapper">
+    <div class="main">
+        <div class="post">
+            {% image self.cover_image fill-500x300-c30 as cover %}
+            <img src="{{cover.url}}" class="cover" alt="">
+            {% for alias in self.aliases.all %}
+                {{alias.name}}
+            {% endfor %}
+            <a href="{% pageurl self.get_parent %}">
+                <h2>DESCARGAR</h2>
+            </a>
+            {% for block in self.content %}
+            {# Loop through every streamfield and include the rendered template files to your page. #}
+                {% include_block block %}
+            {% endfor %}
+            
+        </div>
+        {% sidebar_blog %}
+    </div>
+    
+</div>
+
+{% endblock %}

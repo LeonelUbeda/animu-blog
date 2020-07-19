@@ -1,90 +1,32 @@
 
-$wrapper-size: 85%;
 
 
-$primary-color: #ED4346;
-$primary-color: #4C86A8;
-$dark-primary-color: #2f5166;
+
+
+@import './utils.scss';
+@import "./variables.scss";
+@import "./components/link-to-parent";
+@import "./components/posts/episodes.scss";
+@import "./components/header";
 *{
     font-family: 'Raleway', sans-serif;
     font-family: 'Roboto', sans-serif;
 }
+body{
+    background-color: black;
+}
+
 
 .site-name{
-    font-family: 'Raleway';
-    font-weight: 600;
-    font-size: 3rem;
+    // font-family: 'Raleway';
+    font-weight: 800;
+    background-color: black;
+    font-size: 4rem;
     margin: 10px 0;
-    text-align: center;
-}
-.header{
-    $header-height: 50px;
-    background-color: $primary-color;
-    position: relative;
-    padding: 0 20px;
     color: white;
-    height: $header-height;
-    font-family: monospace;
-    width: 100%;
-    box-sizing: border-box;
-    ul {
-        width: $wrapper-size;
-        height: 100%;
-        list-style: none;
-        margin: 0 auto;
-        padding: 0;
-        display: flex;
-        
-        .item{
-            // line-height: $header-height;
-            padding: 0 20px;
-            font-weight: 600;
-            font-size: 1.2rem;
-            text-decoration: none;
-            
-            position: relative;
-            transition-duration: 0.5s;
-            &:hover{
-                background-color: $dark-primary-color;
-            }
-            &:hover ul{
-                display: block;
-                display: flex;
-            }
-            a{
-                color: #FFFFFF;
-                display: flex;
-                align-items: center;
-                height: 100%;
-            }
-            .subitem{
-                border: .5px solid #cbd5e0;
-                background-color: white;
-                display: none;
-                min-width: 100%;
-                width: auto;
-                height: auto;
-                color: #555555;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                
-                li{
-                    font-size: .9rem ;
-                    white-space: nowrap;
-                    padding: 15px 10px;
-                    z-index: 9999999999999999999999999999999999999999999999999;
-                    cursor: pointer;
-                    &:hover{
-                        background-color: #cbd5e0;;
-                    }
-                }
-            }
-        }
-    }
-    
+    text-align: center;
+    text-shadow: -2px -2px 0px #23D5CE, 2px 2px 0px #DC1BE1;
 }
-// MENU -------------------------------------------------
 
 
 
@@ -96,9 +38,24 @@ $dark-primary-color: #2f5166;
 
     display: grid;
     grid-template-columns: 4fr 2fr;
-    column-gap: 10px;
+    column-gap: 20px;
+    // box-shadow: $box-shadow-default;
+    // box-shadow: 4px 4px 5px 0px #DC1BE1, -4px -4px 0px 0px #23D5CE ;;
     .featured{
         width: 100%;
+        border-left-color: #DC1BE1;
+        border-left-width: 4px;
+        border-left-style: solid;
+        border-top-color: #DC1BE1;
+        border-top-width: 4px;
+        border-top-style: solid;
+
+        border-right-color: #23D5CE;
+        border-right-width: 4px;
+        border-right-style: solid;
+        border-bottom-color: #23D5CE;
+        border-bottom-width: 4px;
+        border-bottom-style: solid;
         h2{
             margin: 5px 0;
         }
@@ -119,11 +76,13 @@ $dark-primary-color: #2f5166;
         
     }
     .side{
+
         width: 100%;
         display: grid;
         row-gap: 10px;
         grid-template-rows: 1fr 1fr;
         .post{
+            
             background-color: cadetblue;
             height: 100%;
             width: 100%;
@@ -132,6 +91,13 @@ $dark-primary-color: #2f5166;
     
 }
 
+
+.tag-post{
+    padding: 3px 5px;
+    margin-right: 5px;
+    // color: white;
+    border: .5px solid black;
+}
 
 
 
@@ -162,6 +128,7 @@ $dark-primary-color: #2f5166;
 }
 
 .main-wrapper{
+    padding-bottom: 100px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -174,11 +141,12 @@ $dark-primary-color: #2f5166;
     /* background-color: royalblue; */
     display: grid;
     grid-template-columns: 6fr minmax(300px, 2fr);
+    grid-template-columns: minmax(0, 6fr) minmax(300px, 2fr);
     column-gap: 30px;
 }
 
 .excerpt{
-    color: #555;
+    color: #E6E6E6;
     font-family: 'Encode Sans', sans-serif;
     font-size: 0.9rem;
     margin-top: 5px;
@@ -199,16 +167,20 @@ $dark-primary-color: #2f5166;
     .post {
         margin-bottom: 30px;
         width: 100%;
-
         display: flex;
         flex-direction: column;
 
         .image-wrapper{
             width: 100%;
             height: 220px;
+            box-shadow: 0px 5px 3px -1.5px $secondary-fond-color;
         }
         .title{
+            // text-shadow: $text-shadow-default;
             color: #333;
+            color: #96FFEC;
+            color: white;
+            // color: $primary-font-color;
             margin: 3px 0;
             font-size: 1.5rem;
         }
@@ -235,9 +207,12 @@ $dark-primary-color: #2f5166;
 
 
 .border-title{
-    border-left: 4px solid;
-    border-left-color: $dark-primary-color;
-    padding-left: 5px;
+    border-left: 2px solid;
+    color: white;
+    font-size: 2rem;
+    text-shadow: $simple-title;
+    border-left-color: $secondary-fond-color;
+    padding-left: 8px;
 }
 
 .sidebar-wrapper{
@@ -246,9 +221,13 @@ $dark-primary-color: #2f5166;
     padding: 0px 10px;
     // background-color: aquamarine;
     .tag{
+        color: white;
         padding: 3px 5px;
         margin-right: 5px;
-        border: .5px solid black;
+        border: 4px solid $primary-font-color;
+        border: 1px solid transparent;
+        border-image: linear-gradient(to bottom right, $primary-font-color 0%, $secondary-fond-color 100%);
+        border-image-slice: 1;
     }
 }
 
@@ -328,4 +307,41 @@ $dark-primary-color: #2f5166;
     }
     
     
+}
+
+
+
+// POST STYLES
+
+.post-detail{
+    .cover-image{
+        width: 100%;
+        height: 400px;
+    }
+}
+
+
+
+.rich-text{
+    max-width: 100%;
+    h2{
+        max-width: 100%;
+        word-wrap: break-word;
+        white-space: normal;
+        color: red
+    }
+    h4{
+        max-width: 100%;
+        word-wrap: break-word;
+        white-space: normal;
+        color: red
+    }
+    p {
+        word-break: break-all;
+        white-space: normal;
+    }
+    .richtext-image.full-width{
+        max-width: 100%;
+        height: auto;
+    }
 }

@@ -1,0 +1,6 @@
+{% load wagtailcore_tags %}
+<div class="link-to-parent ">
+    <a href="{% pageurl page.get_parent %}" class="text-decoration-none">
+        <span>{{self.title}}</span>
+    </a>
+</div>
