@@ -9,6 +9,7 @@
     font-family: monospace;
     width: 100%;
     box-sizing: border-box;
+    z-index: 99;
     ul {
         box-shadow: $box-shadow-default;
         width: $wrapper-size;
@@ -42,25 +43,32 @@
                 height: 100%;
             }
             .subitem{
+                text-shadow: none;
+                box-shadow: none;
                 border: .5px solid #cbd5e0;
                 background-color: white;
                 display: none;
                 min-width: 100%;
                 width: auto;
                 height: auto;
-                color: #555555;
+                color: black;
                 position: absolute;
                 top: 100%;
                 left: 0;
-                
                 li{
+                    width: 100%;
+                    color: black;
                     font-size: .9rem ;
                     white-space: nowrap;
                     padding: 15px 10px;
-                    z-index: 9999999999999999999999999999999999999999999999999;
+                    
                     cursor: pointer;
+                    a{
+                        color: black
+                    }
                     &:hover{
-                        background-color: #cbd5e0;;
+                        color: green($color: #000000);
+                        background-color: #cbd5e0;
                     }
                 }
             }

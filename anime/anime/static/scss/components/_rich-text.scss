@@ -1,0 +1,14 @@
+.rich-text{
+    color: white;
+    p{
+        color: white
+    }
+    .richtext-image {
+        &.left{
+            object-fit: cover;
+            height: auto;
+            width: 50%;
+            margin-right: 10px;
+        }
+    }
+}
