@@ -1,73 +1,112 @@
 
+
+
+// COMMON
 .header{
     $header-height: 50px;
-    background-color: $primary-color;
     position: relative;
     padding: 0 20px;
-    color: white;
-    height: $header-height;
     font-family: monospace;
+    height: $header-height;
     width: 100%;
     box-sizing: border-box;
     z-index: 99;
-    ul {
-        box-shadow: $box-shadow-default;
+    ul{
         width: $wrapper-size;
         height: 100%;
         list-style: none;
         margin: 0 auto;
         padding: 0;
         display: flex;
-        
+    }
+
+    .item{
+        padding: 0 20px;
+        font-weight: 600;
+        font-size: 1.2rem;
+        text-decoration: none;
+        position: relative;
+        transition-duration: 0.5s;
+        &:hover ul{
+            display: flex;
+        }
+        a{
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .subitem{
+            border: .5px solid #cbd5e0;
+            display: none;
+            width: auto;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            li{
+                
+                width: 100%;
+                font-size: .9rem ;
+                white-space: nowrap;
+                padding: 15px 10px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+//default
+.default .header{
+    background-color: $default-primary-color;
+    .item{
+        &:hover{
+            background-color: darken($color: $default-primary-color, $amount: 10%);
+        }
+        a{
+            color: white;
+        }
+        .subitem{
+            background-color: white;
+            color: white;
+            li{
+                color: black;
+                a{
+                    color: black
+                }
+                &:hover{
+                    color: green($color: #000000);
+                    background-color: #cbd5e0;
+                }
+            }
+        }
+    }
+}
+
+
+//DARK 
+.dark .header{
+    background-color: $dark-primary-color;
+    color: white;
+    ul {
+        box-shadow: $dark-box-shadow;
         .item{
-            // line-height: $header-height;
-            padding: 0 20px;
-            font-weight: 600;
-            font-size: 1.2rem;
-            text-decoration: none;
-            
-            position: relative;
-            transition-duration: 0.5s;
             text-shadow: -1px -1px 0px #23D5CE, 1px 1px 0px #DC1BE1;
             &:hover{
                 background-color: $dark-primary-color;
             }
-            &:hover ul{
-                display: block;
-                display: flex;
-            }
             a{
                 color: #FFFFFF;
-                display: flex;
-                align-items: center;
-                height: 100%;
             }
             .subitem{
                 text-shadow: none;
                 box-shadow: none;
-                border: .5px solid #cbd5e0;
                 background-color: white;
-                display: none;
-                min-width: 100%;
-                width: auto;
-                height: auto;
-                color: black;
-                position: absolute;
-                top: 100%;
-                left: 0;
                 li{
-                    width: 100%;
-                    color: black;
-                    font-size: .9rem ;
-                    white-space: nowrap;
-                    padding: 15px 10px;
-                    
-                    cursor: pointer;
                     a{
                         color: black
                     }
                     &:hover{
-                        color: green($color: #000000);
                         background-color: #cbd5e0;
                     }
                 }

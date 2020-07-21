@@ -2,7 +2,7 @@ from django.db import models
 
 from wagtail.core.models import Page
 from wagtail.snippets.models import register_snippet
-from posts.models import AnimePost
+from posts.models import AnimePost, AnimeEpisode
 from wagtail.core.models import Orderable, ClusterableModel
 from modelcluster.fields import ParentalKey
 from wagtail.core.fields import StreamField
@@ -71,7 +71,10 @@ class AnimeHome(Page):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
         context["featured"] = self.get_children().live().public().specific()[:3]
+        context['side_featured'] = self.get_children().live().public().specific().order_by('first_published_at')[:3]
+        print(context['side_featured'])
         context['lastest_anime'] = self.get_children().live().public().specific()[:10]
+        context['lastest_episodes'] = AnimeEpisode.objects.all().order_by('first_published_at')[:20]
         return context
 
     content_panels = Page.content_panels + [

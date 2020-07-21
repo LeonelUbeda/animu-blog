@@ -1,0 +1,105 @@
+
+
+
+
+
+//COMMON
+$column-spacing: 10px;
+.featured-wrapper{
+    margin: 20px auto;
+    margin-bottom: 50px;
+    width: $wrapper-size;
+    max-width: $wrapper-size;
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0,  2fr);
+    grid-template-rows: auto;
+    column-gap: $column-spacing;
+    .featured{
+        width: 100%;
+        h2{
+            margin: 5px 0;
+        }
+        .card{
+            width: 100%;
+            height: 30vw;
+            justify-content: center;
+        }
+    }
+    .info{
+        color: white;
+        border-radius: 5px;
+        bottom: 20px;
+        width: 90%;
+        background-color: rgba(0,0,0,.4);
+        padding: 10px 10px;
+    }
+    .side{
+        width: 100%;
+        display: grid;
+        row-gap: $column-spacing;
+
+        grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+        .post{
+            height: calc((30vw / 2) - 5px);
+            width: 100%;
+        }
+    }
+    
+}
+
+
+
+//default
+.dark .featured-wrapper{
+    .featured{
+        border-left-color: #DC1BE1;
+        border-left-width: 4px;
+        border-left-style: solid;
+        border-top-color: #DC1BE1;
+        border-top-width: 4px;
+        border-top-style: solid;
+        border-right-color: #23D5CE;
+        border-right-width: 4px;
+        border-right-style: solid;
+        border-bottom-color: #23D5CE;
+        border-bottom-width: 4px;
+        border-bottom-style: solid; 
+    } 
+}
+
+
+@media (max-width: 1000px) {
+
+    .featured-wrapper{
+        grid-template-columns: 1fr;
+        .featured{
+            .card{
+                height: auto;
+                max-height: 500px;
+                min-height: 400px;
+                height: 100%;
+                img{
+                    height: 100%;
+                }
+            }
+        }
+        .side{
+            column-gap: 10px;
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr 1fr;
+            .post{
+                background-color: cadetblue;
+                height: 300px;
+            }
+        }
+    }
+
+}
+@media (max-width: 600px) {
+    .featured-wrapper{
+        .side{
+            grid-template-columns: 1fr;
+            grid-template-rows:auto;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+.border-title{
+    padding-left: 8px;
+}
+
+.default .border-title{
+    border-left: 4px solid;
+    font-size: 1.6rem;
+    color: black;
+    border-left-color: $default-primary-color;
+}
+
+.dark .border-title{
+    font-size: 2rem;
+    color: white;
+    border-left: 2px solid;
+    text-shadow: $dark-simple-title;
+}

@@ -1,14 +1,26 @@
-$wrapper-size: 85%;
-$primary-color: #ED4346;
-$primary-color: #4C86A8;
-$primary-color: black   ;
+$wrapper-size: 90%;
+
+
+//Default 
+
+$default-secondary-color: #ED4346;
+$default-primary-color: #4C86A8;
 $dark-primary-color: #2f5166;
+$text-title-color: black;
+$text-title-color: #33475B;
+
+
+
+
+
+
+
+
+
+// DARK THEME
 $dark-primary-color: black;
-
-$text-shadow-default: -2px -2px 0px #23D5CE, 2px 2px 0px #DC1BE1;
-$box-shadow-default: 4px 4px 6px 0px #DC1BE1, -4px -4px 6px 0px #23D5CE ;
-
-$primary-font-color: #23D5CE;
-$secondary-fond-color: #DC1BE1;
-
-$simple-title: -.10rem -.10rem 0px#23D5CE;
+$dark-text-shadow: -2px -2px 0px #23D5CE, 2px 2px 0px #DC1BE1;
+$dark-box-shadow: 4px 4px 6px 0px #DC1BE1, -4px -4px 6px 0px #23D5CE;
+$dark-primary-font-color: #23D5CE;
+$dark-secondary-font-color: #DC1BE1;
+$dark-simple-title: -.10rem -.10rem 0px#23D5CE;

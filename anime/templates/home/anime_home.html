@@ -8,35 +8,41 @@
 {% header_blog %}
 
 <div class="featured-wrapper">
-    <div>
-        <h2 class="border-title">Destacados</h2>
-    </div>
-    <div>
-        <h2 class="border-title">Destacados</h2>
-    </div>
-    <div class="featured">
-        {% for post in featured %}
-            {% image post.cover_image fill-600x600-c100 as cover %}
-            <div class="card relative flex justify-center">
-                <div class="info absolute px2">
-                    <div class="tag-container">
-                        {% for tag in post.genres.all %}
-                            <span class="tag">{{tag.name}}</span>
-                        {% endfor %}
-                    </div>
-                    <h2 class="h3">{{post.title}}</h2>
-                    <p class="excerpt white">{{post.excerpt}}</p>
-                </div>
-                <img src="{{ cover.url }}" alt="">
-            </div>
-        {% endfor %}
-    </div>
-    <div class="side">
-        <div class="post">
-
+    <div class="featured-container">
+        <div class="slider-title">
+            <h2 class="border-title">Destacados</h2>
         </div>
-        <div class="post">
-            
+        <div class="featured">
+            {% for post in featured %}
+                {% image post.cover_image fill-900x600-c100 as cover %}
+                <div class="card relative flex justify-center">
+                    <div class="info absolute px2">
+                        <div class="tag-container">
+                            {% for tag in post.genres.all %}
+                                <span class="tag">{{tag.name}}</span>
+                            {% endfor %}
+                        </div>
+                        <h2 class="h3">{{post.title}}</h2>
+                        <p class="excerpt white">{{post.excerpt}}</p>
+                    </div>
+                    <img src="{{ cover.url }}" alt="">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="side-container">
+        <div class="subslider-title">
+            <h2 class="border-title">Destacados</h2>
+        </div>
+        <div class="side">
+            <div class="post">
+                {% image side_featured.0.cover_image fill-500x400-c100 as cover %}
+                <img src="{{cover.url}}" alt="" class="cover" style="height: 100%; width: 100%;">
+            </div>
+            <div class="post">
+                {% image side_featured.1.cover_image fill-500x400-c100 as cover %}
+                <img src="{{cover.url}}" alt="" class="cover" style="height: 100%; width: 100%;">
+            </div>
         </div>
     </div>
 
@@ -44,9 +50,10 @@
 
 <div class="main-wrapper">
     <div class="main">
-        
         <div class="content-wrapper">
-            {% for post in lastest_anime %}
+            <h2 class="title mt0">Ultimos capitulos</h2>
+            <div class="posts">
+                {% for post in lastest_episodes %}
                 {% image post.cover_image fill-500x300-c30 as cover %}
                 <div class="post">
                     <div class="image-wrapper relative">
@@ -58,52 +65,15 @@
                         </div>
                     </div>
                     <div class="details">
-                        <a href="{% pageurl post %}" class="text-decoration-none"><h3 class="title">{{post.title}}</h3></a>
+                        <a href="{% pageurl post %}" class="text-decoration-none"><h3 class="title">{{post.get_parent.title}} - {{post.title}}</h3></a>
                         {% if post.excerpt %} 
                             <p class="excerpt">{{post.excerpt}}</p> 
                         {% endif %}
                     </div>
                 </div>
             {% endfor %}
-            {% for post in lastest_anime %}
-                {% image post.cover_image fill-500x300-c30 as cover %}
-                <div class="post">
-                    <div class="image-wrapper relative">
-                        <img src="{{cover.url}}" alt="">
-                        <div class="tag-container absolute">
-                            {% for tag in post.mediatag.all %}
-                                <span class="tag">{{tag.name}}</span>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <div class="details">
-                        <a href="{% pageurl post %}" class="text-decoration-none"><h3 class="title">{{post.title}}</h3></a>
-                        {% if post.excerpt %} 
-                            <p class="excerpt">{{post.excerpt}}</p> 
-                        {% endif %}
-                    </div>
-                </div>
-            {% endfor %}
-            {% for post in lastest_anime %}
-                {% image post.cover_image fill-500x300-c30 as cover %}
-                <div class="post">
-                    <div class="image-wrapper relative">
-                        <img src="{{cover.url}}" alt="">
-                        <div class="tag-container absolute">
-                            {% for tag in post.mediatag.all %}
-                                <span class="tag">{{tag.name}}</span>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <div class="details">
-                        <a href="{% pageurl post %}" class="text-decoration-none"><h3 class="title">{{post.title}}</h3></a>
-                        {% if post.excerpt %} 
-                            <p class="excerpt">{{post.excerpt}}</p> 
-                        {% endif %}
-                    </div>
-                </div>
-            {% endfor %}
-           
+            </div>
+            
         </div>
         {% sidebar_blog %}
     </div>

@@ -1,0 +1,33 @@
+.sidebar-wrapper{
+    width: auto;
+    height: auto;
+    padding: 0px 10px;
+    // background-color: aquamarine;
+    .tag{
+        color: white;
+        padding: 3px 5px;
+        margin-right: 5px;
+        border: 4px solid $dark-primary-font-color;
+        border: 1px solid transparent;
+        border-image: linear-gradient(to bottom right, $dark-primary-font-color 0%, $dark-secondary-font-color 100%);
+        border-image-slice: 1;
+    }
+}
+
+.default .sidebar-wrapper{
+    .tag{
+        color: black;
+        border: .5px solid black;
+    }
+}
+
+
+
+.dark .sidebar-wrapper{
+    .tag{
+        color: white;
+        border: 1px solid transparent;
+        border-image: linear-gradient(to bottom right, $dark-primary-font-color 0%, $dark-secondary-font-color 100%);
+        border-image-slice: 1;
+    }
+}
