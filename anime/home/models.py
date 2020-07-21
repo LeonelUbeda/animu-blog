@@ -74,7 +74,7 @@ class AnimeHome(Page):
         context['side_featured'] = self.get_children().live().public().specific().order_by('first_published_at')[:3]
         print(context['side_featured'])
         context['lastest_anime'] = self.get_children().live().public().specific()[:10]
-        context['lastest_episodes'] = AnimeEpisode.objects.all().order_by('first_published_at')[:20]
+        context['lastest_episodes'] = AnimeEpisode.objects.all().order_by('-first_published_at')[:20]
         return context
 
     content_panels = Page.content_panels + [

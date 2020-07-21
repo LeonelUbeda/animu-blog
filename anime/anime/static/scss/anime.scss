@@ -181,8 +181,22 @@ body.dark{
 
 
 @media (max-width: 1500px) {
+
     .content-wrapper{
-        grid-template-columns: 48% 48%;
+        
+        .posts{
+            .title{
+                font-size: 1.2rem;
+            }
+            .image-wrapper{
+                height: auto;
+                img{
+                    height: auto;
+                }
+            }
+            grid-template-rows: auto;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        }
     }
 }
 
@@ -229,10 +243,13 @@ body.dark{
     .content-wrapper{
         padding: 0 10px;
         box-sizing: border-box;
-        grid-template-columns: 100%;
+        .posts{
+            grid-template-columns: 100%;
+        }
     }
     .content-wrapper .post .image-wrapper{
-        height: 350px;
+        height: auto;
+        min-height: 150;
     }
     .content-wrapper .post .details{
         
