@@ -11,11 +11,17 @@
 .cover{
     object-fit: cover;
 }
-*{
-    
-}
 
-.my-5{
-    margin-top: 5px;
-    margin-bottom: 5px;
+@for $i from 1 to 10 {
+    
+    .my#{$i*5}{
+        margin-top: #{$i*5}px;
+        margin-bottom: #{$i*5}px;
+    }
+    .ml#{$i*4}{
+        margin-left: #{$i*4}px;
+    }
+    .mr#{$i*4}{
+        margin-right: #{$i*4}px;
+    }
 }

@@ -6,27 +6,36 @@
 {% block content %}
 {% header_blog %}
 
-{% image self.cover_image fill-500x300-c30 as cover %}
-<div class="relative" style="display: flex; justify-content: center; align-items: center;">
-    <h1 style="position: absolute; color: white;  padding: 5px 10px; background-color: rgba(0, 0, 0, 0.5);">{{page.title}}</h1>
-    <img src="{{cover.url}}" class="cover" style="width: 100%; height: 300px; margin-top: 40px; filter: brightness(100%);">
+{% image self.cover_image original as cover %}
+<div class="breadcrumbs">
+    <div >
+        <a href="{{ request.site.root_url }}" class="text-decoration-none">Inicio</a>
+        <span class="separator">/</span>
+        <a href="{% pageurl self %}" class="text-decoration-none">{{page.title}}</a>
+    </div>
 </div>
-<div class="main-wrapper">
+<div class="main-wrapper anime-post">
     <div class="main">
         <div class="post">
-            <div class="tags my-5">
+            <h1 class="title">{{page.title}}</h1>
+            <!-- <img src="{{cover.url}}" class="cover" style="width: 100%; height: auto; margin-top: 40px; filter: brightness(100%); max-height: 400px;"> -->
+            <div class="tags my20">
+                <span>Alias</span>
                 {% for alias in self.aliases.all %}
                     <span class="tag-post">{{alias.name}}</span>
                 {% endfor %}
             </div>
-            
+            <!-- <div style="width:100%;height:0px;position:relative;padding-bottom:56.250%;">
+                <iframe src="https://streamable.com/e/10fn55" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;">
+                </iframe>
+            </div> -->
             
             {% for block in self.content %}
                 {# Loop through every streamfield and include the rendered template files to your page. #}
                 {% include_block block %}
             {% endfor %}
 
-            {% include "partials/posts/episodes.html" %}
+            {% include "partials/posts/_episodes.html" %}
         </div>
         {% sidebar_blog %}
     </div>

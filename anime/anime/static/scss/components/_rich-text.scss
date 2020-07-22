@@ -1,7 +1,7 @@
-.rich-text{
-    color: white;
+.default .rich-text{
+    color: $text-title-color;
     p{
-        color: white
+        color: $text-title-color
     }
     .richtext-image {
         &.left{
@@ -9,6 +9,27 @@
             height: auto;
             width: 50%;
             margin-right: 10px;
+        }
+        &.full-width{
+            margin: 0 auto
+        }
+    }
+}
+
+.dark .rich-text{
+    color: black;
+    p{
+        color: $text-title-color
+    }
+    .richtext-image {
+        &.left{
+            object-fit: cover;
+            height: auto;
+            width: 50%;
+            margin-right: 10px;
+        }
+        &.full-width{
+            margin: 0 auto
         }
     }
 }

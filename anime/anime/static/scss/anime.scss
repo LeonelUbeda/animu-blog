@@ -63,7 +63,58 @@ body.dark{
     border: .5px solid black;
 }
 
+.breadcrumbs{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    div{
+        width: $wrapper-size;
+        max-width: $wrapper-size;
+    }
+    a{
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+    a:nth-child(1){
+        padding-left: 0;
+    }
+    .separator{
+        margin: 0 3px;
+    }
+    
+    @media (max-width: 768px) {
+        font-size: 1rem;
+        .separator{
+            margin: 0 2px
+        }
+        
+    }
+    @media (max-width: 425px) {
+        font-size: 1rem;
+        div{
+            max-width: 100%;
+            width: 100%;
+        }
+        .separator{
+            margin: 0 1px
+        }
+    }
+}
 
+.default .breadcrumbs{
+    a{
+        transition: .3s;
+        color: $text-title-light;
+        &:hover{
+            color: darken($color: $text-title-light, $amount: 50%);
+            transition: .3s;
+        }
+    }
+
+}
 
 .post .tag, .post .genre{
     background-color: #70A4FF;
@@ -101,7 +152,6 @@ body.dark{
 .main{
     width: $wrapper-size;
     max-width: $wrapper-size;
-    margin-top: 30px;
     /* background-color: royalblue; */
     display: grid;
     grid-template-columns: 6fr minmax(300px, 2fr);
@@ -176,12 +226,7 @@ body.dark{
 
 
 
-
-
-
-
 @media (max-width: 1500px) {
-
     .content-wrapper{
         
         .posts{
@@ -234,7 +279,12 @@ body.dark{
 @media (max-width: 600px) {
     $wrapper-size: 95%;
 
-    
+    .breadcrumbs{
+        div{
+            width: $wrapper-size;
+            max-width: $wrapper-size;
+        }
+    }
     .main{
         width: $wrapper-size;
         max-width: $wrapper-size;

@@ -8,6 +8,92 @@
   -o-object-fit: cover;
   object-fit: cover; }
 
-.my-5 {
+.my5 {
   margin-top: 5px;
   margin-bottom: 5px; }
+
+.ml4 {
+  margin-left: 4px; }
+
+.mr4 {
+  margin-right: 4px; }
+
+.my10 {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+.ml8 {
+  margin-left: 8px; }
+
+.mr8 {
+  margin-right: 8px; }
+
+.my15 {
+  margin-top: 15px;
+  margin-bottom: 15px; }
+
+.ml12 {
+  margin-left: 12px; }
+
+.mr12 {
+  margin-right: 12px; }
+
+.my20 {
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
+.ml16 {
+  margin-left: 16px; }
+
+.mr16 {
+  margin-right: 16px; }
+
+.my25 {
+  margin-top: 25px;
+  margin-bottom: 25px; }
+
+.ml20 {
+  margin-left: 20px; }
+
+.mr20 {
+  margin-right: 20px; }
+
+.my30 {
+  margin-top: 30px;
+  margin-bottom: 30px; }
+
+.ml24 {
+  margin-left: 24px; }
+
+.mr24 {
+  margin-right: 24px; }
+
+.my35 {
+  margin-top: 35px;
+  margin-bottom: 35px; }
+
+.ml28 {
+  margin-left: 28px; }
+
+.mr28 {
+  margin-right: 28px; }
+
+.my40 {
+  margin-top: 40px;
+  margin-bottom: 40px; }
+
+.ml32 {
+  margin-left: 32px; }
+
+.mr32 {
+  margin-right: 32px; }
+
+.my45 {
+  margin-top: 45px;
+  margin-bottom: 45px; }
+
+.ml36 {
+  margin-left: 36px; }
+
+.mr36 {
+  margin-right: 36px; }
