@@ -10,7 +10,7 @@
 <div class="featured-wrapper">
     <div class="featured-container">
         <div class="slider-title">
-            <h2 class="border-title">Destacados</h2>
+            <h2 class="border-title">Nuevos Animes</h2>
         </div>
         <div class="featured">
             {% for post in featured %}
@@ -22,7 +22,7 @@
                                 <span class="tag">{{tag.name}}</span>
                             {% endfor %}
                         </div>
-                        <h2 class="h3">{{post.title}}</h2>
+                        <a href="{% pageurl post%}" class="text-decoration-none"><h2 class="h3 white">{{post.title}}</h2></a>
                         <p class="excerpt white">{{post.excerpt}}</p>
                     </div>
                     <img src="{{ cover.url }}" alt="">
@@ -35,11 +35,16 @@
             <h2 class="border-title">Destacados</h2>
         </div>
         <div class="side">
-            <div class="post">
+            <div class="post relative flex justify-center">
                 {% image side_featured.0.cover_image fill-500x400-c100 as cover %}
                 <img src="{{cover.url}}" alt="" class="cover" style="height: 100%; width: 100%;">
             </div>
-            <div class="post">
+            <div class="post relative flex justify-center">
+                <div class="absolute info px2">
+                    <a href="{% pageurl side_featured.1 %}" class="text-decoration-none">
+                        <h2 class="my0 white">{{side_featured.1.title}}</h2>
+                    </a>
+                </div>
                 {% image side_featured.1.cover_image fill-500x400-c100 as cover %}
                 <img src="{{cover.url}}" alt="" class="cover" style="height: 100%; width: 100%;">
             </div>
