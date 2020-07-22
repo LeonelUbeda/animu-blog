@@ -40,9 +40,14 @@ body.dark{
 }
 .site-name{
     text-align: center;
-    font-size: 4rem;
+    font-size: 2rem;
     margin: 10px 0;
     font-weight: 800;
+}
+.default .site-name{
+    // background-color: white;
+    color: black;
+    // text-shadow: -2px -2px 0px #23D5CE, 2px 2px 0px #DC1BE1;
 }
 .dark .site-name{
     background-color: black;
@@ -50,11 +55,6 @@ body.dark{
     text-shadow: -2px -2px 0px #23D5CE, 2px 2px 0px #DC1BE1;
 }
 
-.default .site-name{
-    background-color: white;
-    color: black;
-    text-shadow: -2px -2px 0px #23D5CE, 2px 2px 0px #DC1BE1;
-}
 
 
 .tag-post{

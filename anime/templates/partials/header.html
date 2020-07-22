@@ -1,7 +1,11 @@
 {% load wagtailcore_tags %}
-<h2 class="site-name">AMIMIR</h2>
 
-<nav class="header">
+
+<nav class="header flex items-center">
+    <!-- <h2 class="site-name">AMIMIR</h2> -->
+    <a href="/" class="text-decoration-none">
+        <h2 class="site-name" style="color: white;">AMIMIR</h2>
+    </a>
     <ul>
         {% for item in menu.items.all %}
             <li class="item">
