@@ -3,28 +3,28 @@
 {% load blog_tags %}
 {% load wagtailimages_tags %}
 {% load wagtailcore_tags %}
+{% block title %}
+    {{parent.title}} {{page.title}}
+{% endblock %}
 {% block content %}
 {% header_blog %}
+
+
 <div class="breadcrumbs">
     <div>
         <a href="{{ request.site.root_url }}" class="text-decoration-none">Inicio</a>
         <span class="separator">/</span>
-        <a href="{% pageurl page.get_parent %}" class="text-decoration-none">{{page.get_parent.title}}</a>
+        <a href="{% pageurl page.get_parent %}" class="text-decoration-none">{{parent.title}}</a>
         <span class="separator">/</span>
         <a href="{% pageurl page %}" class="text-decoration-none">{{page.title}}</a>
     </div>
 </div>
 <div class="main-wrapper">
-    <div class="main">
+    <div class="main main-post-page">
         <div class="post">
-            {% image self.cover_image fill-500x300-c30 as cover %}
+            {% image self.cover_image fill-800x450-c30 as cover %}
             <img src="{{cover.url}}" class="cover" alt="" style="width: 100%; height: auto;">
-            {% for alias in self.aliases.all %}
-                {{alias.name}}
-            {% endfor %}
-            <a href="{% pageurl self.get_parent %}">
-                <h2>DESCARGAR</h2>
-            </a>
+            <h2 class="title mt0">{{parent.title}} - {{page.title}}</h2>
             {% for block in self.content %}
             {# Loop through every streamfield and include the rendered template files to your page. #}
                 {% include_block block %}

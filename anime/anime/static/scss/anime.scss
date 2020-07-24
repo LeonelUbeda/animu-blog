@@ -66,6 +66,7 @@ body.dark{
 .breadcrumbs{
     height: 50px;
     display: flex;
+    margin: 5px 0 20px 0;
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
@@ -158,6 +159,10 @@ body.dark{
     grid-template-columns: minmax(0, 6fr) minmax(300px, 2fr);
     column-gap: 30px;
 }
+.main-post-page{
+    max-width: 70%;
+}
+
 
 .excerpt{
     color: #E6E6E6;
@@ -267,7 +272,7 @@ body.dark{
         width: 100%;
         margin:0;
     }
-    .main{
+    .main, .main-post-page{
         grid-template-columns: auto;
         width: 100%;
         max-width: auto;
@@ -276,16 +281,19 @@ body.dark{
 } 
 
 
+
 @media (max-width: 600px) {
     $wrapper-size: 95%;
-
+    .mobile-btn{
+        display: inline !important;
+    }
     .breadcrumbs{
         div{
             width: $wrapper-size;
             max-width: $wrapper-size;
         }
     }
-    .main{
+    .main, .main-post-page{
         width: $wrapper-size;
         max-width: $wrapper-size;
         grid-template-columns: 100%;

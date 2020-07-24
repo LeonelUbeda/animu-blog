@@ -6,13 +6,13 @@
     <h2>Episodios</h2>
 </div>
 <div class="episodes">
-    {% for i in self.get_children.specific %}
-        {% image i.cover_image fill-400x250-c30 as cover %}
+    {% for episode in episodes %}
+        {% image episode.cover_image fill-400x250-c30 as cover %}
     
         <div class="episode relative">
-            <a href="{% pageurl i %}">
+            <a href="{% pageurl episode %}">
                 <img src="{{cover.url}}" class="cover" alt="">
-                <span class="number absolute">1</span>
+                <span class="episode-title absolute">{{episode.title | lower}}</span>
             </a>
         </div>
     {% endfor %}

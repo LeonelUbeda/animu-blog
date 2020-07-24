@@ -138,7 +138,10 @@ class AnimePost(BasePost):
             FieldPanel("mediatag", widget=forms.CheckboxSelectMultiple),
         ], "Clasificaciones"),
     ]
-
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        context['episodes'] = self.get_children().live().public().specific()
+        return context
     class Meta:
         verbose_name = "Anime"
         verbose_name_plural = "Animes"
@@ -146,3 +149,8 @@ class AnimePost(BasePost):
 class AnimeEpisode(BasePost):
     template = 'posts/anime_episode.html'
     parent_page_types = ['posts.AnimePost']
+    order = models.IntegerField(null=True, blank=True)
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        context["parent"] = self.get_parent()
+        return context
