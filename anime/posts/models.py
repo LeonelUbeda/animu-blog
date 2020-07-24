@@ -105,6 +105,7 @@ class BasePost(Page):
         on_delete=models.SET_NULL,
         related_name="+"
     )
+    is_creatable = False
     tags = ClusterTaggableManager(through=BasePostTag, blank=True)
     author = models.ForeignKey(Author, null=True, blank=True, on_delete=models.SET_NULL)
     excerpt = models.CharField(max_length=80, null=True, blank=False)
@@ -149,8 +150,14 @@ class AnimePost(BasePost):
 class AnimeEpisode(BasePost):
     template = 'posts/anime_episode.html'
     parent_page_types = ['posts.AnimePost']
-    order = models.IntegerField(null=True, blank=True)
+    order = models.IntegerField(null=True, blank=True, default=0)
+    content_panels = BasePost.content_panels + [
+        FieldPanel('order')
+    ]
+
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
         context["parent"] = self.get_parent()
+        context['next'] = self.get_next_sibling()
+        context['prev'] = self.get_prev_sibling()
         return context

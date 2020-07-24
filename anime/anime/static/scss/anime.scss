@@ -26,6 +26,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
+a{
+    text-decoration: none;
+}
+
 body{
     background-color: white;
 }
@@ -160,7 +164,7 @@ body.dark{
     column-gap: 30px;
 }
 .main-post-page{
-    max-width: 70%;
+    max-width: 80%;
 }
 
 
@@ -178,7 +182,7 @@ body.dark{
 
 .content-wrapper {
     width: 100%;
-    
+    padding-bottom: 50px;
     .posts{
         justify-content: center;
         display: grid;
@@ -300,6 +304,7 @@ body.dark{
     }
     .content-wrapper{
         padding: 0 10px;
+        padding-bottom: 50px;
         box-sizing: border-box;
         .posts{
             grid-template-columns: 100%;

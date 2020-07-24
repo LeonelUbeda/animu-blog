@@ -21,7 +21,7 @@
 </div>
 <div class="main-wrapper">
     <div class="main main-post-page">
-        <div class="post">
+        <div class="post content-wrapper">
             {% image self.cover_image fill-800x450-c30 as cover %}
             <img src="{{cover.url}}" class="cover" alt="" style="width: 100%; height: auto;">
             <h2 class="title mt0">{{parent.title}} - {{page.title}}</h2>
@@ -29,7 +29,21 @@
             {# Loop through every streamfield and include the rendered template files to your page. #}
                 {% include_block block %}
             {% endfor %}
-            
+
+            <div class="text-decoration-none flex cap-nav justify-around">
+                {% if prev %}
+                    <a href="{% pageurl prev %}">
+                        <div class="cap-nav">
+                            Ir a {{prev.title}}
+                        </div>
+                    </a>
+                {% endif %}
+                {% if next %}
+                    <a href="{% pageurl next %}">
+                        Ir a {{next.title}}
+                    </a>
+                {% endif %}
+            </div>
         </div>
         {% sidebar_blog %}
     </div>

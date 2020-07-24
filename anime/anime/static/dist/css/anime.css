@@ -399,6 +399,9 @@
   font-family: 'Raleway', sans-serif;
   font-family: 'Roboto', sans-serif; }
 
+a {
+  text-decoration: none; }
+
 body {
   background-color: white; }
 
@@ -507,7 +510,7 @@ body.dark {
   column-gap: 30px; }
 
 .main-post-page {
-  max-width: 70%; }
+  max-width: 80%; }
 
 .excerpt {
   color: #E6E6E6;
@@ -520,7 +523,8 @@ body.dark {
   color: white; }
 
 .content-wrapper {
-  width: 100%; }
+  width: 100%;
+  padding-bottom: 50px; }
   .content-wrapper .posts {
     justify-content: center;
     display: grid;
@@ -603,6 +607,7 @@ body.dark {
     grid-template-columns: 100%; }
   .content-wrapper {
     padding: 0 10px;
+    padding-bottom: 50px;
     box-sizing: border-box; }
     .content-wrapper .posts {
       grid-template-columns: 100%; }
