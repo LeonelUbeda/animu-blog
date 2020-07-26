@@ -32,3 +32,4 @@ class MenuItem(blocks.StructBlock):
     
     def clean(self, value):
         return super().clean(value)
+

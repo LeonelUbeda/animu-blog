@@ -20,7 +20,7 @@ from wagtail.snippets.models import register_snippet
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 
 #BLOCKS
-from .blocks import LinkBlock, RichTextBlock, LinkToParentBlock
+from .blocks import LinkBlock, RichTextBlock, LinkToParentBlock, MediaLink
 
 
 #por ejemplo tags 1080p 720p DropBox Mega
@@ -61,7 +61,6 @@ class Author(models.Model):
         related_name="+"
     )
 
-
 # class TagsAnimePost(Orderable):
 #     page = ParentalKey("posts.AnimePost", related_name="tags")
 #     tag = models.ForeignKey("posts.Tags", on_delete=models.CASCADE)
@@ -96,7 +95,21 @@ class BasePostTag(TaggedItemBase):
     )
 
 
-
+class MediaLink(Orderable):
+    MEGA = 'MG'
+    DROPBOX = 'DP'
+    GOOGLE_DRIVE = 'GD'
+    TELEGRAM = 'TG'
+    title = 
+    SERVERS_CHOICES = [
+        (MEGA, 'Mega'),
+        (DROPBOX, 'Dropbox'),
+        (GOOGLE_DRIVE, 'Google Drive'),
+        (TELEGRAM, 'Telegram'),
+    ]
+    server = models.CharField(max_length=2, choices=SERVERS_CHOICES, default=GOOGLE_DRIVE)
+    link = models.CharField(max_length=80, null=True, blank=False)
+    page = ParentalKey("posts.BasePost", related_name="links")
 class BasePost(Page):
     parent_page_types = ['home.AnimeHome']
     cover_image = models.ForeignKey(
@@ -126,15 +139,18 @@ class AnimePost(BasePost):
     download = StreamField([
         ("link", LinkBlock())
     ])
-
+    
     genres = ParentalManyToManyField("posts.Genre", blank=True, related_name="genres")
     mediatag = ParentalManyToManyField("posts.MediaTag", blank=True, related_name="mediatag")
     content_panels = BasePost.content_panels + [
         MultiFieldPanel([
             InlinePanel("aliases")
         ], "Alias"),
-
         MultiFieldPanel([
+            InlinePanel("links"),
+        ], "Links"),
+        MultiFieldPanel([
+            
             FieldPanel("genres", widget=forms.CheckboxSelectMultiple),
             FieldPanel("mediatag", widget=forms.CheckboxSelectMultiple),
         ], "Clasificaciones"),
@@ -150,11 +166,12 @@ class AnimePost(BasePost):
 class AnimeEpisode(BasePost):
     template = 'posts/anime_episode.html'
     parent_page_types = ['posts.AnimePost']
-    order = models.IntegerField(null=True, blank=True, default=0)
+    subpage_types = []
     content_panels = BasePost.content_panels + [
-        FieldPanel('order')
+        MultiFieldPanel([
+            InlinePanel("links"),
+        ], "Links"),
     ]
-
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
         context["parent"] = self.get_parent()
