@@ -100,7 +100,7 @@ class MediaLink(Orderable):
     DROPBOX = 'DP'
     GOOGLE_DRIVE = 'GD'
     TELEGRAM = 'TG'
-    title = 
+    title = models.CharField(max_length=100, null=True, blank=True)
     SERVERS_CHOICES = [
         (MEGA, 'Mega'),
         (DROPBOX, 'Dropbox'),
