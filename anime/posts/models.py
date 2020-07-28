@@ -96,20 +96,56 @@ class BasePostTag(TaggedItemBase):
 
 
 class MediaLink(Orderable):
+
+    title = models.CharField(max_length=100, null=True, blank=True)
+
+    X265 = 'X265'
+    X264 = 'X264'
+
+    CODEC_CHOICES = [
+        (X265, 'x265'),
+        (X264, 'x264')
+    ]
+    codec = models.CharField(max_length=5, choices=CODEC_CHOICES, default=X264)
+
+    RES_480 = '480'
+    RES_720 = '720'
+    RES_1080 = '1080'
+    RES_ANOTHER = 'Another'
+
+    RESOLUTION_CHOICES = [
+        (RES_480, '480p'),
+        (RES_720, '720p'),
+        (RES_1080, '1080p'),
+        (RES_ANOTHER, 'Otro...')
+    ]
+    resolution = models.CharField(max_length=10, choices=RESOLUTION_CHOICES, default=RES_1080)
+
+
+    SOFT_SUBS = 'SOFT'
+    HARD_SUBS = 'HARD'
+    SUBS_CHOICES = [
+        (SOFT_SUBS, 'Softsubs'),
+        (HARD_SUBS, 'Hardsubs')
+    ]
+    subs = models.CharField(max_length=10, choices=SUBS_CHOICES, default=HARD_SUBS)
+
+
     MEGA = 'MG'
     DROPBOX = 'DP'
     GOOGLE_DRIVE = 'GD'
     TELEGRAM = 'TG'
-    title = models.CharField(max_length=100, null=True, blank=True)
     SERVERS_CHOICES = [
         (MEGA, 'Mega'),
         (DROPBOX, 'Dropbox'),
         (GOOGLE_DRIVE, 'Google Drive'),
         (TELEGRAM, 'Telegram'),
     ]
+
     server = models.CharField(max_length=2, choices=SERVERS_CHOICES, default=GOOGLE_DRIVE)
     link = models.CharField(max_length=80, null=True, blank=False)
     page = ParentalKey("posts.BasePost", related_name="links")
+
 class BasePost(Page):
     parent_page_types = ['home.AnimeHome']
     cover_image = models.ForeignKey(
