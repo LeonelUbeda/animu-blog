@@ -1,0 +1,12 @@
+{% load static %}
+<div class="flex justify-center flex-col items-center">
+    {% for link in links %}
+        {% with 'img/'|add:link.icon as link_icon %}
+        <div class="flex link-item items-center">
+            <img src="{% static link_icon %}" alt="" srcset="">
+            <h5 class="title m0">{{link.subs}}</h5>
+        </div>
+        {% endwith %}
+    {% endfor %}
+
+</div>

@@ -394,6 +394,13 @@
   border-image: linear-gradient(to bottom right, #23D5CE 0%, #DC1BE1 100%);
   border-image-slice: 1; }
 
+.link-item {
+  height: 80px;
+  width: 80%; }
+  .link-item img {
+    width: 60px;
+    height: auto; }
+
 * {
   box-sizing: border-box;
   font-family: 'Raleway', sans-serif;

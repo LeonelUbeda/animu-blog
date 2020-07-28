@@ -1,8 +1,6 @@
 
 {% extends "base.html" %}
-{% load blog_tags %}
-{% load wagtailimages_tags %}
-{% load wagtailcore_tags %}
+{% load wagtailimages_tags wagtailcore_tags blog_tags posts_tags %}
 {% block title %}
     {{parent.title}} {{page.title}}
 {% endblock %}
@@ -22,14 +20,15 @@
 <div class="main-wrapper">
     <div class="main main-post-page">
         <div class="post content-wrapper">
-            {% image self.cover_image fill-800x450-c30 as cover %}
+            {% image self.cover_image fill-1000x550-c30 as cover %}
             <img src="{{cover.url}}" class="cover" alt="" style="width: 100%; height: auto;">
             <h2 class="title mt0">{{parent.title}} - {{page.title}}</h2>
             {% for block in self.content %}
-            {# Loop through every streamfield and include the rendered template files to your page. #}
                 {% include_block block %}
             {% endfor %}
-
+            
+            {% links_posts %}
+            
             <div class="text-decoration-none flex cap-nav justify-around">
                 {% if prev %}
                     <a href="{% pageurl prev %}">
