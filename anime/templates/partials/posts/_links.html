@@ -1,12 +1,35 @@
 {% load static %}
-<div class="flex justify-center flex-col items-center">
-    {% for link in links %}
-        {% with 'img/'|add:link.icon as link_icon %}
-        <div class="flex link-item items-center">
-            <img src="{% static link_icon %}" alt="" srcset="">
-            <h5 class="title m0">{{link.subs}}</h5>
+<div class="flex flex-col media-container">
+    {% for media in media_types %}
+        <div class="media-item flex flex-col">
+            <div class="details flex justify-around items-center">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subtitulos</th>
+                            <th>Resolucion</th>
+                            <th>Codec</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><h5 class="title m0">{{media.subtitles}}</h5></td>
+                            <td><h5 class="title m0">{{media.resolution}}</h5></td>
+                            <td><h5 class="title m0">{{media.codec}}</h5></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {% for link in media.links %}
+                <div class=" links">
+                    {% with 'img/'|add:link.icon as link_icon %}
+                        <img src="{% static link_icon %}" alt="" srcset="">
+                    {% endwith %}
+                </div>
+            {% endfor %}
         </div>
-        {% endwith %}
+        
+        
     {% endfor %}
 
 </div>

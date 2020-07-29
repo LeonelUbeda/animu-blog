@@ -94,8 +94,22 @@ class BasePostTag(TaggedItemBase):
         on_delete=models.CASCADE,
     )
 
-
 class MediaLink(Orderable):
+    MEGA = 'MG'
+    DROPBOX = 'DP'
+    GOOGLE_DRIVE = 'GD'
+    TELEGRAM = 'TG'
+    SERVERS_CHOICES = [
+        (MEGA, 'Mega'),
+        (DROPBOX, 'Dropbox'),
+        (GOOGLE_DRIVE, 'Google Drive'),
+        (TELEGRAM, 'Telegram'),
+    ]
+    server = models.CharField(max_length=2, choices=SERVERS_CHOICES, default=GOOGLE_DRIVE, help_text="holas")
+    link = models.CharField(max_length=80, null=True, blank=False)
+    media_type = ParentalKey("posts.Mediatype", related_name="links", null=True)
+
+class MediaType(ClusterableModel, Orderable):
 
     title = models.CharField(max_length=100, null=True, blank=True)
 
@@ -129,22 +143,13 @@ class MediaLink(Orderable):
         (HARD_SUBS, 'Hardsubs')
     ]
     subs = models.CharField(max_length=10, choices=SUBS_CHOICES, default=HARD_SUBS)
-
-
-    MEGA = 'MG'
-    DROPBOX = 'DP'
-    GOOGLE_DRIVE = 'GD'
-    TELEGRAM = 'TG'
-    SERVERS_CHOICES = [
-        (MEGA, 'Mega'),
-        (DROPBOX, 'Dropbox'),
-        (GOOGLE_DRIVE, 'Google Drive'),
-        (TELEGRAM, 'Telegram'),
+    page = ParentalKey("posts.BasePost", related_name="media_types")
+    panels = [
+        FieldPanel("codec"),
+        FieldPanel("resolution"),
+        FieldPanel("subs"),
+        InlinePanel("links", label="Links")
     ]
-
-    server = models.CharField(max_length=2, choices=SERVERS_CHOICES, default=GOOGLE_DRIVE)
-    link = models.CharField(max_length=80, null=True, blank=False)
-    page = ParentalKey("posts.BasePost", related_name="links")
 
 class BasePost(Page):
     parent_page_types = ['home.AnimeHome']
@@ -183,10 +188,9 @@ class AnimePost(BasePost):
             InlinePanel("aliases")
         ], "Alias"),
         MultiFieldPanel([
-            InlinePanel("links"),
-        ], "Links"),
+            InlinePanel("media_types"),
+        ], "Media types"),
         MultiFieldPanel([
-            
             FieldPanel("genres", widget=forms.CheckboxSelectMultiple),
             FieldPanel("mediatag", widget=forms.CheckboxSelectMultiple),
         ], "Clasificaciones"),
@@ -205,7 +209,7 @@ class AnimeEpisode(BasePost):
     subpage_types = []
     content_panels = BasePost.content_panels + [
         MultiFieldPanel([
-            InlinePanel("links"),
+            InlinePanel("media_types"),
         ], "Links"),
     ]
     def get_context(self, request, *args, **kwargs):

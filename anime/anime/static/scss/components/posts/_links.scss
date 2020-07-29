@@ -1,9 +1,35 @@
-.link-item{
-    height: 80px;
-    width: 80%;
-    img{
-        width: 60px;
-        height: auto;
-        // align-self: flex-start;
+.media-container{
+    width: 100%;
+    .media-item{
+        
+        .details{
+            table{
+                width: 90%;
+                text-align: left;
+                td{
+                    // border: .5px solid black;
+                    h5{
+                        font-size: 1rem;
+                    }
+                }
+            }
+            cursor: pointer;
+            width: 100%;
+            background-color: $default-primary-color;
+            color: white !important;
+            height: 60px;
+            width: 100%;
+            img{
+                width: 60px;
+                height: auto;
+                // align-self: flex-start;
+            }
+        }
+        .links{
+            display: none;
+        }
     }
+    
 }
+
+

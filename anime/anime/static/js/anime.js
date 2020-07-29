@@ -5,6 +5,14 @@ var flkty = new Flickity( elem, {
   contain: true
 });
 
+
+
+$(document).ready(function(){
+  $('.media-item').click(function(){
+    console.log('holas')
+    $(this).children(".links").slideToggle(300)
+  })
+})
 // element argument can be a selector string
 //   for an individual element
 // var flkty = new Flickity( '.main-carousel', {

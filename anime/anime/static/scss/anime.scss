@@ -40,7 +40,9 @@ body.dark{
 
 .title{
     font-size: 1.7rem;
-    color: $text-title-color;
+    &.title-color{
+        color: $text-title-color;
+    }
 }
 .site-name{
     text-align: center;

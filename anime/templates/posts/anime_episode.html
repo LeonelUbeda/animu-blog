@@ -26,9 +26,6 @@
             {% for block in self.content %}
                 {% include_block block %}
             {% endfor %}
-            
-            {% links_posts %}
-            
             <div class="text-decoration-none flex cap-nav justify-around">
                 {% if prev %}
                     <a href="{% pageurl prev %}">
@@ -43,6 +40,7 @@
                     </a>
                 {% endif %}
             </div>
+            {% links_posts %}
         </div>
         {% sidebar_blog %}
     </div>
