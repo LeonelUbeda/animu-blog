@@ -25,7 +25,7 @@
                         <a href="{% pageurl post%}" class="text-decoration-none"><h2 class="h3 white">{{post.title}}</h2></a>
                         <p class="excerpt white">{{post.excerpt}}</p>
                     </div>
-                    <img src="{{ cover.url }}" alt="">
+                    <img src="{{ cover.url }}" class="img-border" alt="">
                 </div>
             {% endfor %}
         </div>
@@ -37,7 +37,7 @@
         <div class="side">
             <div class="post relative flex justify-center">
                 {% image side_featured.0.cover_image fill-500x400-c100 as cover %}
-                <img src="{{cover.url}}" alt="" class="cover" style="height: 100%; width: 100%;">
+                <img src="{{cover.url}}" alt="" class="cover img-border" style="height: 100%; width: 100%;">
             </div>
             <div class="post relative flex justify-center">
                 <div class="absolute info px2">
@@ -46,7 +46,7 @@
                     </a>
                 </div>
                 {% image side_featured.1.cover_image fill-500x400-c100 as cover %}
-                <img src="{{cover.url}}" alt="" class="cover" style="height: 100%; width: 100%;">
+                <img src="{{cover.url}}" alt="" class="cover img-border" style="height: 100%; width: 100%;">
             </div>
         </div>
     </div>
@@ -62,7 +62,7 @@
                 {% image post.cover_image fill-500x280-c40 as cover %}
                 <div class="post">
                     <div class="image-wrapper relative">
-                        <img src="{{cover.url}}" alt="">
+                        <img src="{{cover.url}}" class="img-border" alt="">
                         <div class="tag-container absolute">
                             {% for tag in post.mediatag.all %}
                                 <span class="tag">{{tag.name}}</span>
@@ -82,7 +82,22 @@
         </div>
         {% sidebar_blog %}
     </div>
-
+    <h2 class="title title-color mt0" style="text-align: start;">Ultimos animes añadidos</h2>
+    <div class="lastest-animes">
+        {% for anime in lastest_anime %}
+            {% if anime.poster %}
+                <div class="poster">
+                    {% image anime.poster fill-220x300 as cover%}
+                    <img src="{{cover.url}}" class="cover img-border" alt="">
+                    <div class="poster-headline">
+                        <a href="{% pageurl anime %}" class="text-decoration-none">
+                            <h3>{{anime.title}}</h3>
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}

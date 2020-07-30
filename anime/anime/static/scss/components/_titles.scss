@@ -2,11 +2,21 @@
     padding-left: 8px;
 }
 
-.default .border-title{
-    border-left: 4px solid;
-    font-size: 1.6rem;
-    color: black;
-    border-left-color: $default-primary-color;
+.default {
+    .border-title{
+        border-left: 4px solid;
+        font-size: 1.6rem;
+        color: black;
+        border-left-color: $default-primary-color;
+
+    }
+    .border-title-bottom{
+        border-bottom: 2px solid;
+        font-size: 1.6rem;
+        color: black;
+        border-bottom-color: $default-primary-color;
+        display: inline-block;
+    }
 }
 
 .dark .border-title{

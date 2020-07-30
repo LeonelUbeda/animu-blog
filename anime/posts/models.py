@@ -176,14 +176,18 @@ class BasePost(Page):
 
 class AnimePost(BasePost):
     template = 'posts/anime_post.html'
-
-    download = StreamField([
-        ("link", LinkBlock())
-    ])
-    
+    poster = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True, blank=False,
+        on_delete=models.SET_NULL,
+        related_name="+"
+    )
     genres = ParentalManyToManyField("posts.Genre", blank=True, related_name="genres")
     mediatag = ParentalManyToManyField("posts.MediaTag", blank=True, related_name="mediatag")
     content_panels = BasePost.content_panels + [
+        MultiFieldPanel([
+            ImageChooserPanel("poster")
+        ], "Poster"),
         MultiFieldPanel([
             InlinePanel("aliases")
         ], "Alias"),

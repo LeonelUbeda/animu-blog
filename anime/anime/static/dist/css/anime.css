@@ -243,6 +243,24 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto; } }
 
+.lastest-animes {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  -moz-column-gap: 20px;
+  column-gap: 20px; }
+  .lastest-animes .poster {
+    display: flex;
+    flex-direction: column; }
+    .lastest-animes .poster img {
+      width: 100%;
+      max-width: 250px;
+      height: auto; }
+    .lastest-animes .poster .poster-headline {
+      padding: 5px 8px;
+      font-size: 16px; }
+      .lastest-animes .poster .poster-headline a {
+        color: #33475B; }
+
 .header {
   position: relative;
   padding: 0 20px;
@@ -337,6 +355,13 @@
   color: black;
   border-left-color: #009DDC; }
 
+.default .border-title-bottom {
+  border-bottom: 2px solid;
+  font-size: 1.6rem;
+  color: black;
+  border-bottom-color: #009DDC;
+  display: inline-block; }
+
 .dark .border-title {
   font-size: 2rem;
   color: white;
@@ -344,9 +369,9 @@
   text-shadow: -0.1rem -0.1rem 0px #23D5CE; }
 
 .default .rich-text {
-  color: #161616; }
+  color: #424143; }
   .default .rich-text p {
-    color: #161616; }
+    color: #424143; }
   .default .rich-text .richtext-image.left {
     -o-object-fit: cover;
     object-fit: cover;
@@ -359,7 +384,7 @@
 .dark .rich-text {
   color: black; }
   .dark .rich-text p {
-    color: #161616; }
+    color: #424143; }
   .dark .rich-text .richtext-image.left {
     -o-object-fit: cover;
     object-fit: cover;
@@ -396,23 +421,54 @@
 
 .media-container {
   width: 100%; }
-  .media-container .media-item .details {
-    cursor: pointer;
-    width: 100%;
-    background-color: #009DDC;
-    color: white !important;
-    height: 60px;
-    width: 100%; }
-    .media-container .media-item .details table {
-      width: 90%;
-      text-align: left; }
-      .media-container .media-item .details table td h5 {
-        font-size: 1rem; }
-    .media-container .media-item .details img {
-      width: 60px;
-      height: auto; }
-  .media-container .media-item .links {
-    display: none; }
+  .media-container .media-item {
+    margin-bottom: 20px; }
+    .media-container .media-item .details {
+      width: 100%;
+      max-width: 700px;
+      display: grid;
+      align-items: center;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      height: 60px; }
+      @media (max-width: 768px) {
+        .media-container .media-item .details {
+          height: auto; }
+          .media-container .media-item .details > div {
+            flex-direction: column; } }
+      @media (max-width: 375px) {
+        .media-container .media-item .details {
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(4, minmax(0, 1fr));
+          margin-bottom: 20px; }
+          .media-container .media-item .details > div {
+            flex-direction: row; }
+          .media-container .media-item .details .open-links {
+            margin-top: 10px; } }
+      .media-container .media-item .details .open-links {
+        background-color: #009DDC;
+        height: 40px;
+        color: white;
+        width: 100%;
+        max-width: 100px;
+        border-radius: 5px;
+        cursor: pointer; }
+      .media-container .media-item .details > div h5 {
+        font-size: 1rem;
+        margin: 0 0 0 5px;
+        font-weight: lighter; }
+      .media-container .media-item .details > div img {
+        width: 40px;
+        height: auto; }
+      .media-container .media-item .details img {
+        width: 60px;
+        height: auto; }
+    .media-container .media-item .links {
+      display: none;
+      width: 100%;
+      padding: 20px 0; }
+      .media-container .media-item .links img {
+        width: 50px;
+        margin: 0 20px; }
 
 * {
   box-sizing: border-box;
@@ -431,7 +487,7 @@ body.dark {
 .title {
   font-size: 1.7rem; }
   .title.title-color {
-    color: #161616; }
+    color: #424143; }
 
 .site-name {
   text-align: center;
@@ -450,6 +506,9 @@ body.dark {
 .tag-post {
   padding: 3px 5px;
   margin-right: 5px;
+  border: .5px solid black; }
+
+.border {
   border: .5px solid black; }
 
 .breadcrumbs {
@@ -514,11 +573,15 @@ body.dark {
   -o-object-fit: cover;
   object-fit: cover; }
 
+.img-border {
+  border-radius: 6px; }
+
 .main-wrapper {
   padding-bottom: 100px;
   width: 100%;
   display: flex;
-  justify-content: center; }
+  flex-direction: column;
+  align-items: center; }
 
 .main {
   width: 90%;

@@ -22,25 +22,24 @@
         <div class="post content-wrapper">
             {% image self.cover_image fill-1000x550-c30 as cover %}
             <img src="{{cover.url}}" class="cover" alt="" style="width: 100%; height: auto;">
-            <h2 class="title mt0">{{parent.title}} - {{page.title}}</h2>
+            <h2 class="title title-color mt0">{{parent.title}} - {{page.title}}</h2>
             {% for block in self.content %}
                 {% include_block block %}
             {% endfor %}
-            <div class="text-decoration-none flex cap-nav justify-around">
+            {% media_types %}
+            <div class="text-decoration-none flex cap-nav justify-around" style="padding: 0 30px">
                 {% if prev %}
-                    <a href="{% pageurl prev %}">
-                        <div class="cap-nav">
+                    <a href="{% pageurl prev %}" class="mr-auto border">
                             Ir a {{prev.title}}
-                        </div>
                     </a>
                 {% endif %}
                 {% if next %}
-                    <a href="{% pageurl next %}">
+                    <a href="{% pageurl next %}" class="ml-auto border">
                         Ir a {{next.title}}
                     </a>
                 {% endif %}
             </div>
-            {% links_posts %}
+            
         </div>
         {% sidebar_blog %}
     </div>

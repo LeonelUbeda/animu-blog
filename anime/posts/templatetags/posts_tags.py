@@ -5,7 +5,7 @@ from ..models import MediaLink, MediaType
 
 
 @register.inclusion_tag('partials/posts/_links.html', takes_context=True)
-def links_posts(context):
+def media_types(context):
     servers_images = {
         MediaLink.MEGA: 'mega.png',
         MediaLink.GOOGLE_DRIVE: 'gugoldrive.png'
@@ -27,6 +27,7 @@ def links_posts(context):
     for media in context['page'].media_types.all():
         media_types.append({
             'codec': codec_text[media.codec],
+            'resolution_icon': media.resolution,
             'resolution': resolution_text[media.resolution],
             'subtitles': subs_text[media.subs],
             'links': [{

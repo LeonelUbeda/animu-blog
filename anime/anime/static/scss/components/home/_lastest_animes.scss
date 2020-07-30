@@ -1,0 +1,21 @@
+.lastest-animes{
+    display: grid;
+    grid-template-columns: repeat(4 ,minmax(0, 1fr));
+    column-gap: 20px;
+    .poster{
+        
+        display: flex;
+        flex-direction: column;
+        img{
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+        }
+        .poster-headline{
+            padding: 5px 8px;
+            font-size: 16px;
+            a{color: #33475B;}
+        }
+    }
+    
+}

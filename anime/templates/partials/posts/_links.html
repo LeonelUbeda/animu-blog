@@ -1,35 +1,45 @@
 {% load static %}
+
+{% if media_types %}
+<h2 class="border-title-bottom mb2">Descargas</h2>
 <div class="flex flex-col media-container">
     {% for media in media_types %}
         <div class="media-item flex flex-col">
-            <div class="details flex justify-around items-center">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Subtitulos</th>
-                            <th>Resolucion</th>
-                            <th>Codec</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><h5 class="title m0">{{media.subtitles}}</h5></td>
-                            <td><h5 class="title m0">{{media.resolution}}</h5></td>
-                            <td><h5 class="title m0">{{media.codec}}</h5></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            {% for link in media.links %}
-                <div class=" links">
-                    {% with 'img/'|add:link.icon as link_icon %}
-                        <img src="{% static link_icon %}" alt="" srcset="">
-                    {% endwith %}
+            <div class="details">
+                <div class="flex items-center">
+                    
+                    <img src="{% static 'img/resolution-flat.png' %}" alt="" srcset="">
+                    <h5>{{media.resolution}}</h5>
+                
                 </div>
-            {% endfor %}
+                <div class="flex items-center">
+                    <img src="{% static 'img/rendering-flat.png' %}" alt="" srcset="">
+                    <h5>{{media.codec}}</h5>
+                </div>
+                <div class="flex items-center">
+                    <img src="{% static 'img/translate-flat.png' %}" alt="" srcset="">
+                    <h5>{{media.subtitles}}</h5>
+                </div>
+                <div class="flex items-center open-links justify-center">
+                    <span>Ver links</span>
+                </div>
+            </div>
+            <div class="links">
+                <div class="flex flex-wrap">
+                    {% for link in media.links %}
+                        {% with 'img/'|add:link.icon as link_icon %}
+                            <a href="{{link.link}}">
+                                <img src="{% static link_icon %}" alt="" srcset="">
+                            </a>
+                        {% endwith %}
+                    {% endfor %}
+                </div>
+            </div>
         </div>
         
         
     {% endfor %}
-
 </div>
+
+
+{% endif %}

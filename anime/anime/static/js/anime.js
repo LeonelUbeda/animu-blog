@@ -8,9 +8,10 @@ var flkty = new Flickity( elem, {
 
 
 $(document).ready(function(){
-  $('.media-item').click(function(){
-    console.log('holas')
-    $(this).children(".links").slideToggle(300)
+  $('.open-links').click(function(){
+    // Por el momento lo dejo asi, aunque ta bien chancho xD
+    $(this).parent().parent().children(".links").slideToggle(300)
+
   })
 })
 // element argument can be a selector string

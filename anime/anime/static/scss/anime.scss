@@ -14,6 +14,7 @@
 @import "./components/link-to-parent";
 @import "./components/posts/episodes.scss";
 @import "./components/home/featured";
+@import "./components/home/lastest_animes";
 @import "./components/header";
 @import "./components/titles";
 @import "./components/rich-text";
@@ -66,6 +67,10 @@ body.dark{
 .tag-post{
     padding: 3px 5px;
     margin-right: 5px;
+    border: .5px solid black;
+}
+
+.border{
     border: .5px solid black;
 }
 
@@ -147,13 +152,19 @@ body.dark{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    
+}
+
+.img-border{
+    border-radius: 6px;
 }
 
 .main-wrapper{
     padding-bottom: 100px;
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .main{
@@ -202,6 +213,7 @@ body.dark{
         .image-wrapper{
             width: 100%;
             height: 220px;
+
             // box-shadow: 0px 5px 3px -1.5px $secondary-font-color;
         }
         .title{
