@@ -20,8 +20,8 @@
 <div class="main-wrapper">
     <div class="main main-post-page">
         <div class="post content-wrapper">
-            {% image self.cover_image fill-1000x550-c30 as cover %}
-            <img src="{{cover.url}}" class="cover" alt="" style="width: 100%; height: auto;">
+            
+            {% image self.cover_image fill-1000x550-c30 class="cover" style="width: 100%; height: auto;" %}
             <h2 class="title title-color mt0">{{parent.title}} - {{page.title}}</h2>
             {% for block in self.content %}
                 {% include_block block %}
@@ -30,7 +30,7 @@
             <div class="text-decoration-none flex cap-nav justify-around" style="padding: 0 30px">
                 {% if prev %}
                     <a href="{% pageurl prev %}" class="mr-auto border">
-                            Ir a {{prev.title}}
+                        Ir a {{prev.title}}
                     </a>
                 {% endif %}
                 {% if next %}
@@ -41,7 +41,7 @@
             </div>
             
         </div>
-        {% sidebar_blog %}
+        <!-- {% sidebar_blog %} -->
     </div>
     
 </div>

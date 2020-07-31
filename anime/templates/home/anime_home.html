@@ -61,16 +61,14 @@
                 {% for post in lastest_episodes %}
                 {% image post.cover_image fill-500x280-c40 as cover %}
                 <div class="post">
-                    <div class="image-wrapper relative">
-                        <img src="{{cover.url}}" class="img-border" alt="">
-                        <div class="tag-container absolute">
-                            {% for tag in post.mediatag.all %}
-                                <span class="tag">{{tag.name}}</span>
-                            {% endfor %}
-                        </div>
-                    </div>
+                    <img src="{{cover.url}}" class="img-border" alt="">
                     <div class="details">
-                        <a href="{% pageurl post %}" class="text-decoration-none"><h3 class="title">{{post.get_parent.title}} - {{post.title}}</h3></a>
+                        <a href="{% pageurl post %}" class="text-decoration-none">
+                            <span class="episode-name"> {{post.title}}</span>
+                            <h3 class="title">
+                                {{post.get_parent.title}}
+                            </h3>
+                        </a>
                         {% if post.excerpt %} 
                             <p class="excerpt">{{post.excerpt}}</p> 
                         {% endif %}
@@ -80,24 +78,28 @@
             </div>
             
         </div>
-        {% sidebar_blog %}
-    </div>
-    <h2 class="title title-color mt0" style="text-align: start;">Ultimos animes añadidos</h2>
-    <div class="lastest-animes">
-        {% for anime in lastest_anime %}
-            {% if anime.poster %}
-                <div class="poster">
-                    {% image anime.poster fill-220x300 as cover%}
-                    <img src="{{cover.url}}" class="cover img-border" alt="">
-                    <div class="poster-headline">
-                        <a href="{% pageurl anime %}" class="text-decoration-none">
-                            <h3>{{anime.title}}</h3>
+        <h2 class="title title-color mt0" style="text-align: start; color: #1b262c ; font-size: 20px;">Ultimos animes añadidos</h2>
+        <div class="lastest-animes">
+            {% for anime in lastest_anime %}
+                {% if anime.poster %}
+                    <div class="poster">
+                        {% image anime.poster fill-426x600 as cover%}
+                        <a href="{% pageurl anime %}">
+                            <img src="{{cover.url}}" class="cover img-border" alt="">
                         </a>
+                        <div class="poster-headline">
+                            <a href="{% pageurl anime %}" class="text-decoration-none">
+                                <h3>{{anime.title}}</h3>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            {% endif %}
-        {% endfor %}
+                    
+                {% endif %}
+            {% endfor %}
+        </div>
+        <!-- {% sidebar_blog %} -->
     </div>
+    
 </div>
 
 {% endblock %}

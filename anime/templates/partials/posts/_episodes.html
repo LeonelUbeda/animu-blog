@@ -2,16 +2,14 @@
 {% load wagtailimages_tags %}
 {% load wagtailcore_tags %}
 
-<div class="episodes-title">
-    <h2>Episodios</h2>
-</div>
+<h2 class="title title-color m0">Episodios</h2>
 <div class="episodes">
     {% for episode in episodes %}
         {% image episode.cover_image fill-400x250-c30 as cover %}
     
         <div class="episode relative">
             <a href="{% pageurl episode %}">
-                <img src="{{cover.url}}" class="cover" alt="">
+                <img src="{{cover.url}}" class="cover img-border" alt="">
                 <span class="episode-title absolute">{{episode.title | lower}}</span>
             </a>
         </div>

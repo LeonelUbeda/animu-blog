@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 {% load blog_tags %}
 {% load wagtailimages_tags %}
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags posts_tags %}
 {% block content %}
 {% header_blog %}
 
@@ -17,23 +17,31 @@
 </div>
 <div class="main-wrapper anime-post">
     <div class="main main-post-page">
-        <div class="post content-wrapper">
-            {% image self.cover_image fill-1200x600-c40  class="cover" style="width: 100%; height: auto; max-height: 500px"%}
-            <img src="{{cover.url}}" >
-            <h1 class="title mb0" >{{page.title}}</h1>
-                <div class="tags mt1 flex flex-wrap">
-                    {% for alias in self.aliases.all %}
-                        <span class="tag-post">{{alias.name}}</span>
-                    {% endfor %}
-                </div>
-                <div class="tags flex flex-col">
-                    <span class="my1">Generos</span>
-                    <div>
-                        {% for genre in self.genres.all %}
-                            <span class="tag-post">{{genre.name}}</span>
+        <div class="post anime-detail content-wrapper">
+            
+            {% image self.cover_image fill-1200x600-c40  class="cover" style="width: 100%; height: auto; max-height: 500px; filter: brightness(0.5)"%}
+            
+            <div class="anime-info">
+                {% image self.poster fill-426x600 class="shadow-md poster cover" %}
+                <div style="margin-left: 30px;">
+                    <h1 class="title mb0">{{page.title}}</h1>
+                    <div class="tags mt1 flex flex-wrap">
+                        {% for alias in self.aliases.all %}
+                            <span class="tag-post">{{alias.name}}</span>
                         {% endfor %}
                     </div>
+                    <div class="tags flex flex-col">
+                        <span class="my1">Generos</span>
+                        <div>
+                            {% for genre in self.genres.all %}
+                                <span class="tag-post">{{genre.name}}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
                 </div>
+            </div>
+            
+            
         
             <!-- <div style="width:100%;height:0px;position:relative;padding-bottom:56.250%;">
                 <iframe src="https://streamable.com/e/10fn55" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;">
@@ -46,10 +54,10 @@
                     {% include_block block %}
                 {% endfor %}
             </div>
-
+            {% media_types %}
             {% include "partials/posts/_episodes.html" %}
         </div>
-        {% sidebar_blog %}
+        <!-- {% sidebar_blog %} -->
     </div>
 
 </div>

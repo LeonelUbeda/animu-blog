@@ -1,0 +1,12 @@
+.content-wrapper.anime-detail .poster {
+  width: 200px;
+  height: auto;
+  transform: translate(0, -130px); }
+
+.content-wrapper.anime-detail .anime-info {
+  padding: 0 100px;
+  display: flex; }
+
+@media (max-width: 1024px) {
+  .content-wrapper.anime-detail .anime-info {
+    padding: 0 30px; } }
