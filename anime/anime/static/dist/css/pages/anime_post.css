@@ -6,7 +6,31 @@
 .content-wrapper.anime-detail .anime-info {
   padding: 0 100px;
   display: flex; }
+  .content-wrapper.anime-detail .anime-info .anime-info-side {
+    margin-left: 30px; }
 
 @media (max-width: 1024px) {
   .content-wrapper.anime-detail .anime-info {
     padding: 0 30px; } }
+
+@media (max-width: 768px) {
+  .content-wrapper.anime-detail .poster {
+    transform: none;
+    width: 150px;
+    transform: translate(0, -50px); }
+  .content-wrapper.anime-detail .anime-info {
+    padding: 0 10px; }
+    .content-wrapper.anime-detail .anime-info .anime-info-side {
+      margin-left: 10px; } }
+
+@media (max-width: 425px) {
+  .content-wrapper.anime-detail .poster {
+    transform: none;
+    width: 150px;
+    transform: none; }
+  .content-wrapper.anime-detail .anime-info {
+    transform: translate(0, -50px);
+    padding: 0 10px;
+    flex-direction: column; }
+    .content-wrapper.anime-detail .anime-info .anime-info-side {
+      margin-left: 10px; } }

@@ -55,7 +55,7 @@
 
 <div class="main-wrapper">
     <div class="main">
-        <div class="content-wrapper">
+        <div class="content-wrapper" style="margin-bottom: 20px;">
             <h2 class="title title-color mt0">Ultimos capitulos</h2>
             <div class="posts">
                 {% for post in lastest_episodes %}
@@ -78,8 +78,8 @@
             </div>
             
         </div>
-        <h2 class="title title-color mt0" style="text-align: start; color: #1b262c ; font-size: 20px;">Ultimos animes añadidos</h2>
-        <div class="lastest-animes">
+        <h2 class="title title-color content-wrapper" style="margin-bottom: 20px;">Ultimos animes añadidos</h2>
+        <div class="lastest-animes content-wrapper">
             {% for anime in lastest_anime %}
                 {% if anime.poster %}
                     <div class="poster">

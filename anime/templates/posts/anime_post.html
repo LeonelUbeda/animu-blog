@@ -23,7 +23,7 @@
             
             <div class="anime-info">
                 {% image self.poster fill-426x600 class="shadow-md poster cover" %}
-                <div style="margin-left: 30px;">
+                <div class="anime-info-side">
                     <h1 class="title mb0">{{page.title}}</h1>
                     <div class="tags mt1 flex flex-wrap">
                         {% for alias in self.aliases.all %}

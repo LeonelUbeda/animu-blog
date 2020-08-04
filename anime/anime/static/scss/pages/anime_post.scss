@@ -8,10 +8,41 @@
         .anime-info{
             padding: 0 100px;
             display: flex;
+            .anime-info-side{
+                margin-left: 30px;
+            }
         }
         @media (max-width: 1024px){
             .anime-info{
                 padding: 0 30px;
+            }
+        }
+        @media (max-width: 768px){
+            .poster{
+                transform: none;
+                width: 150px;
+                transform: translate(0,-50px);
+            }
+            .anime-info{
+                padding: 0 10px;
+                .anime-info-side{
+                    margin-left: 10px;
+                }
+            }
+        }
+        @media (max-width: 425px){
+            .poster{
+                transform: none;
+                width: 150px;
+                transform: none;
+            }
+            .anime-info{
+                transform: translate(0,-50px);
+                padding: 0 10px;
+                flex-direction: column;
+                .anime-info-side{
+                    margin-left: 10px;
+                }
             }
         }
     }
