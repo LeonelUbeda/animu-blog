@@ -7,24 +7,28 @@
 {% header_blog %}
 
 
-
 <div class="breadcrumbs">
-    <div>
-        <a href="/" class="text-decoration-none">Inicio</a>
-        <span class="separator">/</span>
-        <a href="{% pageurl self %}" class="text-decoration-none">{{page.title}}</a>
-    </div>
+    <ul class="list-reset">
+        <li>
+            <a href="{{ request.site.root_url }}" class="text-decoration-none">Inicio</a>
+        </li>
+        <li>
+            <a href="{% pageurl self %}" class="text-decoration-none">{{page.title}}</a>
+        </li>
+    </ul>
 </div>
+
+
 <div class="main-wrapper anime-post">
     <div class="main main-post-page">
         <div class="post anime-detail content-wrapper">
             
-            {% image self.cover_image fill-1200x600-c40  class="cover" style="width: 100%; height: auto; max-height: 500px; filter: brightness(0.5)"%}
+            {% image self.cover_image fill-1200x600-c40  class="cover img-border anime-banner" style="width: 100%; height: auto; max-height: 500px; filter: brightness(0.5)"%}
             
             <div class="anime-info">
-                {% image self.poster fill-426x600 class="shadow-md poster cover" %}
+                {% image self.poster fill-426x600 class="shadow-md poster cover img-border" %}
                 <div class="anime-info-side">
-                    <h1 class="title mb0">{{page.title}}</h1>
+                    <h1 class="title">{{page.title}}</h1>
                     <div class="tags mt1 flex flex-wrap">
                         {% for alias in self.aliases.all %}
                             <span class="tag-post">{{alias.name}}</span>

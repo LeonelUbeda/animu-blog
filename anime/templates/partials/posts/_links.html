@@ -1,7 +1,7 @@
 {% load static %}
 
+<h2 class="border-title-bottom title mb2">Descargas</h2>
 {% if media_types %}
-<h2 class="border-title-bottom mb2">Descargas</h2>
 <div class="flex flex-col media-container">
     {% for media in media_types %}
         <div class="media-item flex flex-col">
@@ -40,6 +40,7 @@
         
     {% endfor %}
 </div>
-
+{% else %}
+<h2>No hay descargas disponibles</h2>
 
 {% endif %}

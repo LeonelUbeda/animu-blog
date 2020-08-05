@@ -33,17 +33,27 @@
         @media (max-width: 425px){
             .poster{
                 transform: none;
-                width: 150px;
+                width: 100%;
                 transform: none;
+
+            }
+            .anime-banner{
+                display: none;
             }
             .anime-info{
-                transform: translate(0,-50px);
-                padding: 0 10px;
+                transform: none;
+                padding: 0 ;
                 flex-direction: column;
                 .anime-info-side{
                     margin-left: 10px;
                 }
             }
+        }
+        @media (max-width: 320px){
+            .poster{
+                margin: 0 auto;
+            }
+            
         }
     }
 }

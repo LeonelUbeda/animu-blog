@@ -2,17 +2,25 @@
     padding-left: 8px;
 }
 
+.title{
+    font-size: 1.7rem;
+    font-size: $title-font-size;
+    &.title-color{
+        color: $text-title-color;
+    }
+}
+
 .default {
     .border-title{
         border-left: 4px solid;
-        font-size: 1.6rem;
+        font-size: $title-font-size;
         color: black;
         border-left-color: $default-primary-color;
 
     }
     .border-title-bottom{
         border-bottom: 2px solid;
-        font-size: 1.6rem;
+        font-size: $title-font-size;
         color: black;
         border-bottom-color: $default-primary-color;
         display: inline-block;
